@@ -18,3 +18,6 @@ Route::get('/', function () {
 Route::get('/coba', function () {
     return view('/home/index');
 });
+Route::get('/coba', function () {
+    return view('/home/index');
+});
