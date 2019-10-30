@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/coba', function () {
-    return view('welcome');
+    return view('/home/index');
 });
