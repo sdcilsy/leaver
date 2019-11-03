@@ -8,24 +8,24 @@
   <meta name="author" content="Creative Tim">
   <title>LEHO</title>
   <!-- Favicon -->
-  <link href="{{assets('img/brand/favicon.png')}}" rel="icon" type="image/png">
+  <link href="{{asset('img/brand/favicon.png')}}" rel="icon" type="image/png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- Icons -->
-  <link href="{{assets('/assets/vendor/nucleo/css/nucleo.css')}}" rel="stylesheet">
-  <link href="{{assets('/assets/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/vendor/nucleo/css/nucleo.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
   <!-- Argon CSS -->
-  <link type="text/css" href="{{assets('/assets/css/argon.css?v=1.0.1')}}" rel="stylesheet">
+  <link type="text/css" href="{{asset('assets/css/argon.css?v=1.0.1')}}" rel="stylesheet">
   <!-- Docs CSS -->
-  <link type="text/css" href="{{assets('/assets/css/docs.min.css')}}" rel="stylesheet">
+  <link type="text/css" href="{{asset('assets/css/docs.min.css')}}" rel="stylesheet">
 </head>
 
 <body>
   <header class="header-global">
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
       <div class="container">
-        <a class="navbar-brand mr-lg-5" href="{{assets('')}}/index.html">
-          <img src="{{assets('/img/brand/leho.png')}}">
+        <a class="navbar-brand mr-lg-5" href="/index.html">
+          <img src="{{asset('assets/img/brand/leho.png')}}">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -34,8 +34,8 @@
           <div class="navbar-collapse-header">
             <div class="row">
               <div class="col-6 collapse-brand">
-                <a href="{{assets('')}}/index.html">
-                  <img src="{{assets('img/brand/lehodef.png')}}/assets/">
+                <a href="/index.html">
+                  <img src="{{asset('assets/img/brand/lehodef.png')}}">
                 </a>
               </div>
               <div class="col-6 collapse-close">
@@ -48,7 +48,7 @@
           </div>
           <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
             <li class="nav-item">
-              <a href="<?= BASEURL ?>/" class="nav-link">
+              <a href="" class="nav-link">
                 Home
               </a>
             </li>
@@ -70,7 +70,7 @@
   <main>
     <div class="position-relative">
       <!-- shape Hero -->
-      <section class="section section-lg section-shaped pb-250" style="background-image: url({{assets('')}}/img/bg_index.jpg); background-size: cover;">
+      <section class="section section-lg section-shaped pb-250" style="background-image: url({{asset('assets/img/bg_index.jpg')}}); background-size: cover;">
         <div class="shape shape-style-1 shape-dark">
           <span></span>
           <span></span>
@@ -92,10 +92,10 @@
                 </h1>
                 <p class="lead  text-white">leho is a video-based learning website in which there are many features that can be used for free.</p>
                 <div class="btn-wrapper">
-                  <a href="{{assets('')}}/auth/login" class="btn btn-white btn-icon mb-3 mb-sm-0">
+                  <a href="{{asset('assets/auth/login')}}" class="btn btn-white btn-icon mb-3 mb-sm-0">
                     <span class="btn-inner--text">LOGIN</span>
                   </a>
-                  <a href="{{assets('')}}/auth/registrasi" class="btn btn-dark btn-icon mb-3 mb-sm-0">
+                  <a href="{{asset('auth/registrasi')}}" class="btn btn-dark btn-icon mb-3 mb-sm-0">
                     <span class="btn-inner--text">SIGN UP</span>
                   </a>
                 </div>
@@ -128,7 +128,7 @@
                     <div>
                       <span class="badge badge-pill badge-warning">register</span>
                     </div>
-                    <a href="{{assets('')}}/auth/registrasi" class="btn btn-warning mt-4">Learn more</a>
+                    <a href="{{asset('auth/registrasi')}}" class="btn btn-warning mt-4">Learn more</a>
                   </div>
                 </div>
               </div>
@@ -144,7 +144,7 @@
                       <span class="badge badge-pill badge-danger">register</span>
                       <span class="badge badge-pill badge-danger">login</span>
                     </div>
-                    <a href="{{assets('')}}/auth/login" class="btn btn-danger mt-4">Learn more</a>
+                    <a href="{{asset('auth/login')}}" class="btn btn-danger mt-4">Learn more</a>
                   </div>
                 </div>
               </div>
@@ -174,7 +174,7 @@
       <div class="container">
         <div class="row row-grid align-items-center">
           <div class="col-md-6 order-md-2">
-            <img src="{{assets('')}}/assets/img/theme/promo-1.png" class="img-fluid floating">
+            <img src="{{asset('assets/img/theme/promo-1.png')}}" class="img-fluid floating">
           </div>
           <div class="col-md-6 order-md-1 text-dark">
             <div class="pr-md-5">
@@ -231,7 +231,7 @@
         <div class="row row-grid align-items-center">
           <div class="col-md-6 order-lg-2 ml-lg-auto">
             <div class="position-relative pl-md-5">
-              <img src="{{assets('')}}/assets/img/ill/ill-2.svg" class="img-center img-fluid">
+              <img src="{{asset('assets/img/ill/ill-2.svg')}}" class="img-center img-fluid">
             </div>
           </div>
           <div class="col-lg-6 order-lg-1">
@@ -431,12 +431,12 @@
     </div>
   </footer>
   <!-- Core -->
-  <script src="{{assets('')}}/assets/vendor/jquery/jquery.min.js"></script>
-  <script src="{{assets('')}}/assets/vendor/popper/popper.min.js"></script>
-  <script src="{{assets('')}}/assets/vendor/bootstrap/bootstrap.min.js"></script>
-  <script src="{{assets('')}}/assets/vendor/headroom/headroom.min.js"></script>
+  <script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('assets/vendor/popper/popper.min.js')}}"></script>
+  <script src="{{asset('assets/vendor/bootstrap/bootstrap.min.js')}}"></script>
+  <script src="{{asset('assets/vendor/headroom/headroom.min.js')}}"></script>
   <!-- Argon JS -->
-  <script src="{{assets('')}}/assets/js/argon.js?v=1.0.1"></script>
+  <script src="{{asset('assets/js/argon.js?v=1.0.1')}}"></script>
 </body>
 
 </html>
