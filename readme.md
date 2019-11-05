@@ -1,3 +1,5 @@
-1. php artisan migrate
+-php artisan migrate
 
-2 php artisan db:seed --class=UsersTableSeeder
+-php artisan db:seed --class=UsersTableSeeder
+
+new branch gan, merge weh.
