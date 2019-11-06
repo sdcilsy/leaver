@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return view('examples-dashboard/index');
+});
+
+Route::get('/', function () {
+    return view('welcome');
 });
