@@ -18,5 +18,3 @@ Route::get('/register','HomeController@register');
 Route::get('/icons', function () {
     return view('examples-dashboard/icons');
 });
-
-Route

@@ -24,21 +24,21 @@
   <title>@yield('title')</title>
 
   <!-- Favicon -->
-  <link href="../assets/img/brand/favicon.png" rel="icon" type="image/png">
+  <link href="{{ asset('assets-nonadmin/img/brand/favicon.png') }}" rel="icon" type="image/png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- Icons -->
-  <link href="../assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-  <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="{{ asset('assets-nonadmin/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets-nonadmin/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
   <!-- Argon CSS -->
-  <link type="text/css" href="../assets/css/argon.css?v=1.1.0" rel="stylesheet">
+  <link type="text/css" href="{{ asset('assets-nonadmin/css/argon.css?v=1.1.0') }}" rel="stylesheet">
 </head>
 <body>
   <header class="header-global">
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
       <div class="container">
         <a class="navbar-brand mr-lg-5" href="../index.html">
-          <img src="../assets/img/brand/white.png" alt="brand">
+          <img src="{{ asset('assets-nonadmin/img/brand/white.png') }}" alt="brand">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -48,7 +48,7 @@
             <div class="row">
               <div class="col-6 collapse-brand">
                 <a href="../index.html">
-                  <img src="../assets/img/brand/blue.png" alt="brand">
+                  <img src="{{ asset('assets-nonadmin/img/brand/blue.png') }}" alt="brand">
                 </a>
               </div>
               <div class="col-6 collapse-close">
@@ -152,24 +152,6 @@
   @yield('body')
 
   <footer class="footer has-cards">
-    <div class="container container-lg">
-      <div class="row">
-        <div class="col-md-6 mb-5 mb-md-0">
-          <div class="card card-lift--hover shadow border-0">
-            <a href="../examples/landing.html" title="Landing Page">
-              <img alt="image" src="../assets/img/theme/landing.jpg" class="card-img">
-            </a>
-          </div>
-        </div>
-        <div class="col-md-6 mb-5 mb-lg-0">
-          <div class="card card-lift--hover shadow border-0">
-            <a href="../examples/profile.html" title="Profile Page">
-              <img alt="image" src="../assets/img/theme/profile.jpg" class="card-img">
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="container">
       <div class="row row-grid align-items-center my-md">
         <div class="col-lg-6">
@@ -220,10 +202,10 @@
 </body>
 
 <!-- Core -->
-<script src="../assets/vendor/jquery/jquery.min.js"></script>
-  <script src="../assets/vendor/popper/popper.min.js"></script>
-  <script src="../assets/vendor/bootstrap/bootstrap.min.js"></script>
-  <script src="../assets/vendor/headroom/headroom.min.js"></script>
+<script src="{{ asset('assets-nonadmin/vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('assets-nonadmin/vendor/popper/popper.min.js') }}"></script>
+  <script src="{{ asset('assets-nonadmin/vendor/bootstrap/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('assets-nonadmin/vendor/headroom/headroom.min.js') }}"></script>
   <!-- Argon JS -->
-  <script src="../assets/js/argon.js?v=1.1.0"></script>
+  <script src="{{ asset('assets-nonadmin/js/argon.js?v=1.1.0') }}"></script>
 </html>
