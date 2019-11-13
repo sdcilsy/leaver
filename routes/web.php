@@ -12,9 +12,10 @@
 */
 
 Route::get('/','HomeController@index');
-Route::get('/dashboard','HomeController@dashadmin');
+Route::get('/dashboard','admincontroller@index');
 Route::get('/login','HomeController@login');
 Route::get('/register','HomeController@register');
 Route::get('/icons', function () {
     return view('examples-dashboard/icons');
 });
+Route::get('/student/index', 'studentController@index');
