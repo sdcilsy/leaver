@@ -30,3 +30,7 @@ Route::get('/login', function () {
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/no', function () {
+    return view('welcome');
+});
