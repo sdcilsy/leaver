@@ -11,22 +11,10 @@
 |
 */
 
-Route::get('/dashboard', function () {
-    return view('examples-dashboard/index');
-});
-
+Route::get('/','HomeController@index');
+Route::get('/dashboard','HomeController@dashadmin');
+Route::get('/login','HomeController@login');
+Route::get('/register','HomeController@register');
 Route::get('/icons', function () {
     return view('examples-dashboard/icons');
-});
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
-
-Route::get('/', function () {
-    return view('welcome');
 });

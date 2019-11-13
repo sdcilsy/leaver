@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Design System for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Argon Design System - Free Design System for Bootstrap 4</title>
+  <title>Welcome to Leaver</title>
   <!-- Favicon -->
   <link href="./assets/img/brand/favicon.png" rel="icon" type="image/png">
   <!-- Fonts -->
@@ -119,41 +119,12 @@
                 <span class="nav-link-inner--text d-lg-none">Github</span>
               </a>
             </li>
-            <li class="nav-item d-none d-lg-block ml-lg-4">
-              <a href="url('/login')" target="" class="btn btn-neutral btn-icon">
-                <span class="btn-inner--icon">
-                  <i class="ni ni-circle-08 mr-2"></i>
-                </span>
-                <span class="nav-link-inner--text">Login</span>
-              </a>
-              <a href="https://www.creative-tim.com/product/argon-design-system" target="_blank" class="btn btn-neutral btn-icon">
-                <span class="btn-inner--icon">
-                  <i class="ni ni-fat-add mr-2"></i>
-                </span>
-                <span class="nav-link-inner--text">Register</span>
-              </a>        
-            </li>
           </ul>
         </div>
       </div>
     </nav>
   </header>
   <main>
-    <!--
-
-=========================================================
-* Argon Design System - v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-design-system
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
     <div class="position-relative">
       <!-- Hero for FREE version -->
       <section class="section section-lg section-hero section-shaped">
@@ -177,18 +148,17 @@
                 <img alt="image" src="./assets/img/brand/white.png" style="width: 200px;" class="img-fluid">
                 <p class="lead text-white">Education revolution at it's fines.</p>
                 <div class="btn-wrapper mt-5">
-                  <a href="https://www.creative-tim.com/product/argon-design-system" class="btn btn-lg btn-white btn-icon mb-3 mb-sm-0">
+                  <a href="{{ url('login')}}" class="btn btn-lg btn-white btn-icon mb-3 mb-sm-0">
                     <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span>
                     <span class="btn-inner--text">Login</span>
                   </a>
-                  <a href="https://github.com/creativetimofficial/argon-design-system" class="btn btn-lg btn-github btn-icon mb-3 mb-sm-0" target="_blank">
+                  <a href="{{ url('register') }}" class="btn btn-lg btn-github btn-icon mb-3 mb-sm-0>
                     <span class="btn-inner--icon"></span>
                     <span class="btn-inner--text"><span class="text-warning">Sign</span> Up!</span>
                   </a>
                 </div>
                 <div class="mt-5">
-                  <small class="text-white font-weight-bold mb-0 mr-2">*proudly coded by</small>
-                  <img alt="image" src="./assets/img/brand/creativetim-white-slim.png" style="height: 28px;">
+                  <small class="text-white font-weight-bold mb-0 mr-2">*proudly coded by leaver team</small>
                 </div>
               </div>
             </div>
