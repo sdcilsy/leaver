@@ -1,5 +1,5 @@
 @extends('../template/master-nonis')
-@section('title', 'Argon Design System - Free Design System for Bootstrap 4')
+@section('title', 'Landing page')
 @section('body')
   <main>
     <div class="position-relative">

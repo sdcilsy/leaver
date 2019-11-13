@@ -1,4 +1,4 @@
-@extends('master')
+@extends('template/master-home')
 @section('title','Register')
 @section('body')
 <main>
