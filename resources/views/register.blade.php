@@ -1,18 +1,3 @@
-<!--
-
-=========================================================
-* Argon Design System - v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-design-system
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,24 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Design System for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Argon Design System - Free Design System for Bootstrap 4</title>
+  <title>Register dulu kakak :)</title>
   <!-- Favicon -->
-  <link href="../assets/img/brand/favicon.png" rel="icon" type="image/png">
+  <link href="./assets/img/brand/favicon.png" rel="icon" type="image/png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- Icons -->
-  <link href="../assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-  <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+  <link href="./assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <!-- Argon CSS -->
-  <link type="text/css" href="../assets/css/argon.css?v=1.1.0" rel="stylesheet">
+  <link type="text/css" href="./assets/css/argon.css?v=1.1.0" rel="stylesheet">
 </head>
 
 <body>
   <header class="header-global">
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
       <div class="container">
-        <a class="navbar-brand mr-lg-5" href="../index.html">
-          <img src="../assets/img/brand/white.png" alt="brand">
+        <a class="navbar-brand mr-lg-5" href="{{ url('/') }}">
+          <img src="./assets/img/brand/white.png" alt="brand">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -46,8 +31,8 @@
           <div class="navbar-collapse-header">
             <div class="row">
               <div class="col-6 collapse-brand">
-                <a href="../index.html">
-                  <img src="../assets/img/brand/blue.png" alt="brand">
+                <a href="./index.html">
+                  <img src="./assets/img/brand/blue.png" alt="brand">
                 </a>
               </div>
               <div class="col-6 collapse-close">
@@ -102,10 +87,10 @@
                 <span class="nav-link-inner--text">Examples</span>
               </a>
               <div class="dropdown-menu">
-                <a href="../examples/landing.html" class="dropdown-item">Landing</a>
-                <a href="../examples/profile.html" class="dropdown-item">Profile</a>
-                <a href="../examples/login.html" class="dropdown-item">Login</a>
-                <a href="../examples/register.html" class="dropdown-item">Register</a>
+                <a href="./examples/landing.html" class="dropdown-item">Landing</a>
+                <a href="./examples/profile.html" class="dropdown-item">Profile</a>
+                <a href="./examples/login.html" class="dropdown-item">Login</a>
+                <a href="./examples/register.html" class="dropdown-item">Register</a>
               </div>
             </li>
           </ul>
@@ -134,14 +119,6 @@
                 <span class="nav-link-inner--text d-lg-none">Github</span>
               </a>
             </li>
-            <li class="nav-item d-none d-lg-block ml-lg-4">
-              <a href="https://www.creative-tim.com/product/argon-design-system" target="_blank" class="btn btn-neutral btn-icon">
-                <span class="btn-inner--icon">
-                  <i class="fa fa-cloud-download mr-2"></i>
-                </span>
-                <span class="nav-link-inner--text">Download</span>
-              </a>
-            </li>
           </ul>
         </div>
       </div>
@@ -168,13 +145,13 @@
                 <div class="text-center">
                   <a href="#" class="btn btn-neutral btn-icon mr-4">
                     <span class="btn-inner--icon">
-                      <img src="../assets/img/icons/common/github.svg" alt="image">
+                      <img src="./assets/img/icons/common/github.svg" alt="image">
                     </span>
                     <span class="btn-inner--text">Github</span>
                   </a>
                   <a href="#" class="btn btn-neutral btn-icon">
                     <span class="btn-inner--icon">
-                      <img src="../assets/img/icons/common/google.svg" alt="image">
+                      <img src="./assets/img/icons/common/google.svg" alt="image">
                     </span>
                     <span class="btn-inner--text">Google</span>
                   </a>
@@ -278,12 +255,12 @@
     </div>
   </footer>
   <!-- Core -->
-  <script src="../assets/vendor/jquery/jquery.min.js"></script>
-  <script src="../assets/vendor/popper/popper.min.js"></script>
-  <script src="../assets/vendor/bootstrap/bootstrap.min.js"></script>
-  <script src="../assets/vendor/headroom/headroom.min.js"></script>
+  <script src="./assets/vendor/jquery/jquery.min.js"></script>
+  <script src="./assets/vendor/popper/popper.min.js"></script>
+  <script src="./assets/vendor/bootstrap/bootstrap.min.js"></script>
+  <script src="./assets/vendor/headroom/headroom.min.js"></script>
   <!-- Argon JS -->
-  <script src="../assets/js/argon.js?v=1.1.0"></script>
+  <script src="./assets/js/argon.js?v=1.1.0"></script>
 </body>
 
 </html>
