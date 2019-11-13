@@ -30,7 +30,3 @@ Route::get('/register', function () {
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/test2', function () {
-    return view('welcome');
-});
