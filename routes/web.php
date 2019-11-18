@@ -15,8 +15,8 @@ Route::get('/','HomeController@index');
 Route::get('/dashboard','admincontroller@index');
 Route::get('/login','HomeController@login');
 Route::get('/register','HomeController@register');
-Route::get('/student/index', 'studentController@index');
-Route::get('/teacher/index', 'teacherController@index');
+Route::get('/student', 'studentController@index');
+Route::get('/teacher', 'teacherController@index');
 Route::get('/icons', function () {
     return view('examples-dashboard/icons');
 });

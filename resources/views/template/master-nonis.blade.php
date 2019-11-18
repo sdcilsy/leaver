@@ -38,7 +38,7 @@
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
       <div class="container">
         <a class="navbar-brand mr-lg-5" href="../index.html">
-          <img src="{{ asset('assets-nonadmin/img/brand/white.png') }}" alt="brand">
+          <img src="{{ asset('assets/img/brand/white.png') }}" alt="brand">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -133,14 +133,6 @@
               <a class="nav-link nav-link-icon" href="https://github.com/creativetimofficial/argon-design-system" target="_blank" data-toggle="tooltip" title="Star us on Github">
                 <i class="fa fa-github"></i>
                 <span class="nav-link-inner--text d-lg-none">Github</span>
-              </a>
-            </li>
-            <li class="nav-item d-none d-lg-block ml-lg-4">
-              <a href="https://www.creative-tim.com/product/argon-design-system" target="_blank" class="btn btn-neutral btn-icon">
-                <span class="btn-inner--icon">
-                  <i class="fa fa-cloud-download mr-2"></i>
-                </span>
-                <span class="nav-link-inner--text">Download</span>
               </a>
             </li>
           </ul>

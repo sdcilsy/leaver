@@ -152,10 +152,14 @@
                     <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span>
                     <span class="btn-inner--text">Login</span>
                   </a>
-                  <a href="{{ url('register') }}" class="btn btn-lg btn-github btn-icon mb-3 mb-sm-0>
+                  <a href="{{ url('register')}}" class="btn btn-lg btn-github btn-icon mb-3 mb-sm-0">
                     <span class="btn-inner--icon"></span>
                     <span class="btn-inner--text"><span class="text-warning">Sign</span> Up!</span>
                   </a>
+                  {{-- <a href="{{ url('register') }}" class="btn btn-lg btn-github btn-icon mb-3 mb-sm-0>
+                    <span class="btn-inner--icon"></span>
+                    <span class="btn-inner--text"><span class="text-warning">Sign</span> Up!</span>
+                  </a> --}}
                 </div>
                 <div class="mt-5">
                   <small class="text-white font-weight-bold mb-0 mr-2">*proudly coded by leaver team</small>

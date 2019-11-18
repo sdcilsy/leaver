@@ -1,4 +1,4 @@
-@extends('examples-dashboard/master')
+@extends('admin/master')
 @section('title')
   <title>
     Argon Dashboard - Free Dashboard for Bootstrap 4 by Creative Tim
