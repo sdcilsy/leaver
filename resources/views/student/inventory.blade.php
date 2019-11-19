@@ -20,8 +20,8 @@
           <div class="col px-0">
             <div class="row">
               <div class="col-lg-6">
-                <h1 class="display-3  text-white">Welcome back<span>users!</span></h1>
-                <p class="lead  text-white">Leaver is a (ganti sama kamu mbo)</p>
+                <h1 class="display-3  text-white">Ada apa tuh di tas..(edit soon)</h1>
+                <p class="lead  text-white">Simpan buku, catatan penting, dll disini(edit soon)</p>
               </div>
             </div>
           </div>
