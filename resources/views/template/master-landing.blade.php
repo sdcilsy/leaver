@@ -1,18 +1,3 @@
-<!--
-
-=========================================================
-* Argon Design System - v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-design-system
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -118,19 +103,19 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="https://www.instagram.com/creativetimofficial" target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
+              <a class="nav-link nav-link-icon" href="https://www.instagram.com/leaverofficial" target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
                 <i class="fa fa-instagram"></i>
                 <span class="nav-link-inner--text d-lg-none">Instagram</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="https://twitter.com/creativetim" target="_blank" data-toggle="tooltip" title="Follow us on Twitter">
+              <a class="nav-link nav-link-icon" href="https://twitter.com/leaverofficial" target="_blank" data-toggle="tooltip" title="Follow us on Twitter">
                 <i class="fa fa-twitter-square"></i>
                 <span class="nav-link-inner--text d-lg-none">Twitter</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="https://github.com/creativetimofficial/argon-design-system" target="_blank" data-toggle="tooltip" title="Star us on Github">
+              <a class="nav-link nav-link-icon" href="https://github.com/mramdani551/leaver" target="_blank" data-toggle="tooltip" title="Star us on Github">
                 <i class="fa fa-github"></i>
                 <span class="nav-link-inner--text d-lg-none">Github</span>
               </a>

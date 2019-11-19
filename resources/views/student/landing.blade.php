@@ -1,4 +1,4 @@
-@extends('../template/master-nonis')
+@extends('../template/master-landing')
 @section('title', 'Argon Design System - Free Design System for Bootstrap 4')
 @section('body')
   <main>
@@ -46,14 +46,9 @@
                     <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
                       <i class="ni ni-check-bold"></i>
                     </div>
-                    <h6 class="text-primary text-uppercase">Download Argon</h6>
-                    <p class="description mt-3">Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.</p>
-                    <div>
-                      <span class="badge badge-pill badge-primary">design</span>
-                      <span class="badge badge-pill badge-primary">system</span>
-                      <span class="badge badge-pill badge-primary">creative</span>
-                    </div>
-                    <a href="#" class="btn btn-primary mt-4">Learn more</a>
+                    <h6 class="text-primary text-uppercase">Create new memories!</h6>
+                    <p class="description mt-3">Fitur ini mengijinkan anda untuk membuat halaman demi halaman baru sesuai dengan nama mata pelajaran yang ada.</p>
+                    <a href="{{ url('/student/new') }}" class="btn btn-primary mt-4">Akses fitur.</a>
                   </div>
                 </div>
               </div>
@@ -63,14 +58,9 @@
                     <div class="icon icon-shape icon-shape-success rounded-circle mb-4">
                       <i class="ni ni-istanbul"></i>
                     </div>
-                    <h6 class="text-success text-uppercase">Build Something</h6>
-                    <p class="description mt-3">Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.</p>
-                    <div>
-                      <span class="badge badge-pill badge-success">business</span>
-                      <span class="badge badge-pill badge-success">vision</span>
-                      <span class="badge badge-pill badge-success">success</span>
-                    </div>
-                    <a href="#" class="btn btn-success mt-4">Learn more</a>
+                    <h6 class="text-success text-uppercase">Read the book!</h6>
+                    <p class="description mt-3">Fitur ini mengijinkan anda untuk membuka halaman demi halaman yang telah di buat sesuai dengan mata pelajaran yang ada.</p>
+                    <a href="{{ url('/student/read', []) }}" class="btn btn-success mt-4">Akses fitur.</a>
                   </div>
                 </div>
               </div>
@@ -80,14 +70,9 @@
                     <div class="icon icon-shape icon-shape-warning rounded-circle mb-4">
                       <i class="ni ni-planet"></i>
                     </div>
-                    <h6 class="text-warning text-uppercase">Prepare Launch</h6>
-                    <p class="description mt-3">Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.</p>
-                    <div>
-                      <span class="badge badge-pill badge-warning">marketing</span>
-                      <span class="badge badge-pill badge-warning">product</span>
-                      <span class="badge badge-pill badge-warning">launch</span>
-                    </div>
-                    <a href="#" class="btn btn-warning mt-4">Learn more</a>
+                    <h6 class="text-warning text-uppercase">Look at the bag! What's there?</h6>
+                    <p class="description mt-3">Fitur ini mengijinkan anda untuk melihat isi tas anda. Apakah itu buku virtual, catatan penting, dan lain-lain.</p>
+                    <a href="{{ url('/student/inventory', []) }}" class="btn btn-warning mt-4">Akses fitur.</a>
                   </div>
                 </div>
               </div>
@@ -101,7 +86,7 @@
         <div class="row row-grid align-items-center">
           <div class="col-md-6">
             <div class="card bg-default shadow border-0">
-              <img src="../assets/img/theme/img-1-1200x1000.jpg" class="card-img-top" alt="image">
+              {{-- <img src="{{ asset('/assets/img/theme/img-1-1200x1000.jpg') }}" class="card-img-top" alt="image"> --}}
               <blockquote class="card-blockquote">
                 <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" class="svg-bg">
                   <polygon points="0,52 583,95 0,95" class="fill-default" />

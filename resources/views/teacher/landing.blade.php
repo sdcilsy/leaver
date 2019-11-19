@@ -1,4 +1,4 @@
-@extends('../template/master-nonis')
+@extends('../template/master-landing')
 @section('title', 'Landing page')
 @section('body')
   <main>
@@ -101,7 +101,7 @@
         <div class="row row-grid align-items-center">
           <div class="col-md-6">
             <div class="card bg-default shadow border-0">
-              <img src="../assets/img/theme/img-1-1200x1000.jpg" class="card-img-top" alt="image">
+              <img src="{{ asset('/assets/img/theme/img-1-1200x1000.jpg') }}" class="card-img-top" alt="image">
               <blockquote class="card-blockquote">
                 <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" class="svg-bg">
                   <polygon points="0,52 583,95 0,95" class="fill-default" />
