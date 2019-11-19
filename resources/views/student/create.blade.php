@@ -1,5 +1,5 @@
 @extends('../template/master-landing')
-@section('title', 'Welcome to Leaver')
+@section('title', 'Create new')
 @section('body')
   <main>
     <div class="position-relative">
@@ -20,8 +20,8 @@
           <div class="col px-0">
             <div class="row">
               <div class="col-lg-6">
-                <h1 class="display-3  text-white">Welcome back<span>users!</span></h1>
-                <p class="lead  text-white">Leaver is a (ganti sama kamu mbo)</p>
+                <h1 class="display-3  text-white">Kuy nulis gan(edit soon)<span>users!</span></h1>
+                <p class="lead  text-white">Mari buat lembaran baru pada vbook mu!.</p>
               </div>
             </div>
           </div>

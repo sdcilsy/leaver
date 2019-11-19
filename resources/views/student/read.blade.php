@@ -1,5 +1,5 @@
 @extends('../template/master-landing')
-@section('title', 'Welcome to Leaver')
+@section('title', 'Read your vbook')
 @section('body')
   <main>
     <div class="position-relative">

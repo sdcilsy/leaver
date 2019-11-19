@@ -1,5 +1,5 @@
 @extends('../template/master-landing')
-@section('title', 'Welcome to Leaver')
+@section('title', 'Access your bag')
 @section('body')
   <main>
     <div class="position-relative">
