@@ -17,6 +17,7 @@
   <link href="{{ asset('assets-nonadmin/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
   <!-- Argon CSS -->
   <link type="text/css" href="{{ asset('assets-nonadmin/css/argon.css?v=1.1.0') }}" rel="stylesheet">
+  <script src="{{ asset('assets-ckeditor/ckeditor.js') }}"></script>
 </head>
 <body>
   <header class="header-global">
