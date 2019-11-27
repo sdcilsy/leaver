@@ -35,54 +35,11 @@
       </section>
       <!-- 1st Hero Variation -->
     </div>
-    <section class="section section-lg pt-lg-0 mt--200">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-12">
-            <div class="row row-grid">
-              <div class="col-lg-4">
-                <div class="card card-lift--hover shadow border-0">
-                  <div class="card-body py-5">
-                    <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
-                      <i class="ni ni-check-bold"></i>
-                    </div>
-                    <h6 class="text-primary text-uppercase">Create new memories!</h6>
-                    <p class="description mt-3">Fitur ini mengijinkan anda untuk membuat halaman demi halaman baru sesuai dengan nama mata pelajaran yang ada.</p>
-                    <a href="{{ url('/student/create') }}" class="btn btn-primary mt-4">Akses fitur.</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="card card-lift--hover shadow border-0">
-                  <div class="card-body py-5">
-                    <div class="icon icon-shape icon-shape-success rounded-circle mb-4">
-                      <i class="ni ni-istanbul"></i>
-                    </div>
-                    <h6 class="text-success text-uppercase">Read the book!</h6>
-                    <p class="description mt-3">Fitur ini mengijinkan anda untuk membuka halaman demi halaman yang telah di buat sesuai dengan mata pelajaran yang ada.</p>
-                    <a href="{{ url('/student/read', []) }}" class="btn btn-success mt-4">Akses fitur.</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="card card-lift--hover shadow border-0">
-                  <div class="card-body py-5">
-                    <div class="icon icon-shape icon-shape-warning rounded-circle mb-4">
-                      <i class="ni ni-planet"></i>
-                    </div>
-                    <h6 class="text-warning text-uppercase">Look at the bag! What's there?</h6>
-                    <p class="description mt-3">Fitur ini mengijinkan anda untuk melihat isi tas anda. Apakah itu buku virtual, catatan penting, dan lain-lain.</p>
-                    <a href="{{ url('/student/inventory', []) }}" class="btn btn-warning mt-4">Akses fitur.</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <section class="section bg-secondary">
       <div class="container">
+      <textarea class="ckeditor" id="ckedtor"></textarea>
+		  <br/>
+		  <button class="btn btn-danger">Jangan Disimpan</button>
       </div>
     </section>
   </main>
