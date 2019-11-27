@@ -17,6 +17,8 @@
 Route::get('/','HomeController@index');
 Route::get('/login','HomeController@login');
 Route::get('/register','HomeController@register');
+
+Route::post('/login/process','HomeController@process');
 // Admin routes
 Route::get('/admin','admincontroller@index');
 // Student routes

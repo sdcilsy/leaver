@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('id_ID');
-        for($i = 1; $i <= 10; $i++){
+        for($i = 1; $i <= 100; $i++){
             DB::table('users')->insert([
                 'id'=> $i,
                 'name' => $faker->name,
@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
                 'password' => '12345',
                 'email' => $faker->email,
                 'phone' => $faker->phoneNumber,
-                'course' => 'inull'
+                'course' => ''
             ]);
         }
     }
