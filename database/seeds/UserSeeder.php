@@ -20,10 +20,10 @@ class UserSeeder extends Seeder
                 'id'=> $i,
                 'name' => $faker->name,
                 'username' => $faker->username,
-                'role' => 'admin',
+                'role' => 'student',
                 'password' => Hash::make('12345'),
                 'email' => $faker->email,
-                'phone' => $faker->phoneNumber,
+                // 'phone' => $faker->phoneNumber,
                 'course' => ''
             ]);
         }
