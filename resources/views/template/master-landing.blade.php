@@ -97,7 +97,7 @@
             </li>
           </ul>
           <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
                 <i class="fa fa-facebook-square"></i>
                 <span class="nav-link-inner--text d-lg-none">Facebook</span>
@@ -119,6 +119,11 @@
               <a class="nav-link nav-link-icon" href="https://github.com/mramdani551/leaver" target="_blank" data-toggle="tooltip" title="Star us on Github">
                 <i class="fa fa-github"></i>
                 <span class="nav-link-inner--text d-lg-none">Github</span>
+              </a>
+            </li> --}}
+            <li>
+              <a class="nav-link nav-link-icon" href="{{ url('/logout') }}" data-toggle="tooltip" title="Logout">
+                <span class="nav-link-inner--text">Logout</span>
               </a>
             </li>
           </ul>

@@ -20,7 +20,7 @@
           <div class="col px-0">
             <div class="row">
               <div class="col-lg-6">
-                <h1 class="display-3  text-white">Welcome back<span>users!</span></h1>
+                <h1 class="display-3  text-white">Welcome back<span>{{ Auth::user()->name }}</span></h1>
                 <p class="lead  text-white">Leaver is a (edit soon)</p>
               </div>
             </div>
