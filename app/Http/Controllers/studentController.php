@@ -17,7 +17,7 @@ class studentController extends Controller
     public function read(){
         return view('student/read');
     }
-    public function inventory(){
+    public function library(){
         return view('student/inventory');
     }
 }

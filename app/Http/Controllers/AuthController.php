@@ -26,6 +26,9 @@ class AuthController extends Controller
             }
             return redirect('/student');
         }
+        $msg = "Bad username/password";
+        return redirect()->route('login')->with(['msg'=>$msg]);
+
     }
     public function register_process(Request $request){
         $validate = $request->validate([

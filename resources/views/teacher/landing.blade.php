@@ -20,8 +20,8 @@
           <div class="col px-0">
             <div class="row">
               <div class="col-lg-6">
-                <h1 class="display-3  text-white">A beautiful Design System<span>completed with examples</span></h1>
-                <p class="lead  text-white">The design system comes with four pre-built pages to help you get started faster. You can change the text and images and you're good to go.</p>
+                <h1 class="display-3  text-white">Welcome back<span>{{Auth::user()->username}}</span></h1>
+                <p class="lead  text-white">Blablablablabla some quotes.</p>
               </div>
             </div>
           </div>
@@ -46,14 +46,14 @@
                     <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
                       <i class="ni ni-check-bold"></i>
                     </div>
-                    <h6 class="text-primary text-uppercase">Download Argon</h6>
-                    <p class="description mt-3">Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.</p>
-                    <div>
+                    <h6 class="text-primary text-uppercase">My Class</h6>
+                      {{-- <p class="description mt-3">Lihat kelas yang telah dibuat untuk memeriksa berbagai catatan murid yang terhubung dalam satu kelas.</p> --}}
+                    {{-- <div>
                       <span class="badge badge-pill badge-primary">design</span>
                       <span class="badge badge-pill badge-primary">system</span>
                       <span class="badge badge-pill badge-primary">creative</span>
-                    </div>
-                    <a href="#" class="btn btn-primary mt-4">Learn more</a>
+                    </div> --}}
+                    <a href="{{ url('/class') }}" class="btn btn-primary mt-4">Learn more</a>
                   </div>
                 </div>
               </div>
@@ -63,14 +63,14 @@
                     <div class="icon icon-shape icon-shape-success rounded-circle mb-4">
                       <i class="ni ni-istanbul"></i>
                     </div>
-                    <h6 class="text-success text-uppercase">Build Something</h6>
-                    <p class="description mt-3">Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.</p>
-                    <div>
+                    <h6 class="text-success text-uppercase">Create new class</h6>
+                    {{-- <p class="description mt-3">Buat kelas baru untuk menghubungkan dengan para murid.</p> --}}
+                    {{-- <div>
                       <span class="badge badge-pill badge-success">business</span>
                       <span class="badge badge-pill badge-success">vision</span>
                       <span class="badge badge-pill badge-success">success</span>
-                    </div>
-                    <a href="#" class="btn btn-success mt-4">Learn more</a>
+                    </div> --}}
+                    <a href="{{ url('/class/create') }}" class="btn btn-success mt-4">Learn more</a>
                   </div>
                 </div>
               </div>
@@ -80,14 +80,14 @@
                     <div class="icon icon-shape icon-shape-warning rounded-circle mb-4">
                       <i class="ni ni-planet"></i>
                     </div>
-                    <h6 class="text-warning text-uppercase">Prepare Launch</h6>
-                    <p class="description mt-3">Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.</p>
-                    <div>
+                    <h6 class="text-warning text-uppercase">Library</h6>
+                    {{-- <p class="description mt-3">Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.</p> --}}
+                    {{-- <div>
                       <span class="badge badge-pill badge-warning">marketing</span>
                       <span class="badge badge-pill badge-warning">product</span>
                       <span class="badge badge-pill badge-warning">launch</span>
-                    </div>
-                    <a href="#" class="btn btn-warning mt-4">Learn more</a>
+                    </div> --}}
+                    <a href="{{ url('/library') }}" class="btn btn-warning mt-4">Learn more</a>
                   </div>
                 </div>
               </div>
