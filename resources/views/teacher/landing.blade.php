@@ -53,7 +53,7 @@
                       <span class="badge badge-pill badge-primary">system</span>
                       <span class="badge badge-pill badge-primary">creative</span>
                     </div> --}}
-                    <a href="{{ url('/class') }}" class="btn btn-primary mt-4">Learn more</a>
+                    <a href="#myclass" class="btn btn-primary mt-4">Click here!</a>
                   </div>
                 </div>
               </div>
@@ -70,7 +70,7 @@
                       <span class="badge badge-pill badge-success">vision</span>
                       <span class="badge badge-pill badge-success">success</span>
                     </div> --}}
-                    <a href="{{ url('/class/create') }}" class="btn btn-success mt-4">Learn more</a>
+                    <a href="{{ url('/teacher/create') }}" class="btn btn-success mt-4">Click here!</a>
                   </div>
                 </div>
               </div>
@@ -87,7 +87,7 @@
                       <span class="badge badge-pill badge-warning">product</span>
                       <span class="badge badge-pill badge-warning">launch</span>
                     </div> --}}
-                    <a href="{{ url('/library') }}" class="btn btn-warning mt-4">Learn more</a>
+                    <a href="{{ url('/teacher/library') }}" class="btn btn-warning mt-4">Click here!</a>
                   </div>
                 </div>
               </div>
@@ -96,9 +96,15 @@
         </div>
       </div>
     </section>
-    <section class="section bg-secondary">
+    <section class="section bg-secondary" id="myclass">
       <div class="container">
-        <div class="row row-grid align-items-center">
+        <div class="list-group">
+          <a href="{{ url('/teacher/class/id') }}" class="list-group-item list-group-item-action">XII XXXXXX ABCD (CONTOH IF CLICKED)</a>
+          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
+          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
+          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
+        </div>
+        {{-- <div class="row row-grid align-items-center">
           <div class="col-md-6">
             <div class="card bg-default shadow border-0">
               <img src="{{ asset('/assets/img/theme/img-1-1200x1000.jpg') }}" class="card-img-top" alt="image">
@@ -124,7 +130,7 @@
               <a href="#" class="font-weight-bold text-warning mt-5">A beautiful UI Kit for impactful websites</a>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
     </section>
   </main>

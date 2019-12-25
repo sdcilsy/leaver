@@ -17,6 +17,9 @@
       <div class="row justify-content-center">
         <div class="col-lg-5">
           <div class="card bg-secondary shadow border-0">
+            
+            {{-- sign in with google or github --}}
+
             {{-- <div class="card-header bg-white pb-5">
               <div class="text-muted text-center mb-3"><small>Sign in with</small></div>
               <div class="btn-wrapper text-center">

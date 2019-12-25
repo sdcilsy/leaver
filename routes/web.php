@@ -34,7 +34,13 @@ Route::middleware(['auth','roles'])->group(function () {
 });
 Route::middleware(['auth','rolet'])->group(function() {
     Route::get('/teacher', 'teacherController@index');
-    Route::get('/teacher/class', 'teacherController@class');
-    Route::get('/teacher/class/create', 'teacherController@new_class');
+    // ganti id --> {id}
+    Route::get('/teacher/class/id', 'teacherController@class');
+    // ganti std_id --> {std_id}
+    Route::get('/teacher/class/id/std_id', 'teacherController@student_progress');
+    // ganti book_id --> {book_id}
+    Route::get('/teacher/class/id/std_id/book_id', 'teacherController@book_progress');
+    Route::get('/teacher/create', 'teacherController@new_class');
+    Route::post('/teacher/create/process', 'teacherController@process');
     Route::get('/teacher/library', 'teacherController@library');
 });
