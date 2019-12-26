@@ -29,7 +29,15 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth','roles'])->group(function () {
     Route::get('/student', 'studentController@index');
     Route::get('/student/create', 'studentController@create');
-    Route::get('/student/read', 'studentController@read');
+    Route::post('/student/create/process', 'studentController@create_process');
+    // change id to --> {id}
+    Route::get('/student/create/id', 'studentController@create_book');
+    // change id to --> {id}
+    Route::get('/student/read/id', 'studentController@read');
+    // change book_id to --> {book_id}
+    Route::get('/student/read/id/book_id', 'studentController@read_book');
+    Route::get('/student/join', 'studentController@join_class');
+    Route::post('/student/join/process', 'studentController@join_process');
     Route::get('/student/library', 'studentController@library');
 });
 Route::middleware(['auth','rolet'])->group(function() {

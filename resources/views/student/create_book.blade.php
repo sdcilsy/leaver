@@ -1,5 +1,5 @@
 @extends('../template/master-landing')
-@section('title', 'Welcome to Leaver')
+@section('title', 'Create new')
 @section('body')
   <main>
     <div class="position-relative">
@@ -20,8 +20,8 @@
           <div class="col px-0">
             <div class="row">
               <div class="col-lg-6">
-                <h1 class="display-3  text-white">Welcome back<span>{{ Auth::user()->name }}</span></h1>
-                <p class="lead  text-white">Leaver is a (edit soon)</p>
+                <h1 class="display-3  text-white">Kuy nulis gan(edit soon)<span>users!</span></h1>
+                <p class="lead  text-white">Mari buat lembaran baru pada vbook mu!.</p>
               </div>
             </div>
           </div>
@@ -35,16 +35,26 @@
       </section>
       <!-- 1st Hero Variation -->
     </div>
-    <section class="section bg-secondary" id="read">
+    <section class="section bg-secondary">
       <div class="container">
-        <div class="list-group">
-          <h2 class="text-center">Pilih Mapel</h2>
-          {{-- change id --> foreach id --}}
-          <a href="{{ url('/student/create/id') }}" class="list-group-item list-group-item-action">PABP (CONTOH IF CLICKED)</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
-        </div>
+        @if (count($errors)>0)
+            @foreach ($errors->all() as $error)
+              <div class="alert alert-danger" role="alert">
+                {{ $error }}
+              </div>
+            @endforeach
+        @endif
+        <form action="{{ url('/student/create/process') }}" method="POST">
+        {{ csrf_field() }}
+          <div class="form-group mb-3">
+            <div class="input-group input-group-alternative">
+                <input class="form-control" type="text" placeholder="Book name" name="book_name" value="{{old('book_name')}}">
+            </div>
+          </div>
+          <textarea class="ckeditor" id="ckedtor"></textarea>
+          <br>
+          <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+        </form>
       </div>
     </section>
   </main>

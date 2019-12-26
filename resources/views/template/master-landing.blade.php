@@ -58,6 +58,7 @@
               </a>
               <div class="dropdown-menu dropdown-menu-xl">
                 <div class="dropdown-menu-inner">
+                  @if (Auth::user()->role=='teacher')
                   <a href="{{ url('/teacher/#myclass') }}" class="media d-flex align-items-center">
                     <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
                       <i class="ni ni-spaceship"></i>
@@ -85,6 +86,45 @@
                       {{-- <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p> --}}
                     </div>
                   </a>
+                  @endif
+                  @if (Auth::user()->role == 'student')
+                  <a href="{{ url('/student/create') }}" class="media d-flex align-items-center">
+                    <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                      <i class="ni ni-spaceship"></i>
+                    </div>
+                    <div class="media-body ml-3">
+                      <h6 class="heading text-primary mb-md-1">Create new memories</h6>
+                      {{-- <p class="description d-none d-md-inline-block mb-0">Learn how to use Argon compiling Scss, change brand colors and more.</p> --}}
+                    </div>
+                  </a>
+                  <a href="{{ url('/student/#read') }}" class="media d-flex align-items-center">
+                    <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                      <i class="ni ni-palette"></i>
+                    </div>
+                    <div class="media-body ml-3">
+                      <h6 class="heading text-primary mb-md-1">Read my book</h6>
+                      {{-- <p class="description d-none d-md-inline-block mb-0">Learn more about colors, typography, icons and the grid system we used for Argon.</p> --}}
+                    </div>
+                  </a>
+                  <a href="{{ url('/student/join') }}" class="media d-flex align-items-center">
+                    <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                      <i class="ni ni-planet"></i>
+                    </div>
+                    <div class="media-body ml-3">
+                      <h5 class="heading text-warning mb-md-1">Join Class</h5>
+                      {{-- <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p> --}}
+                    </div>
+                  </a>
+                  <a href="{{ url('/student/library') }}" class="media d-flex align-items-center">
+                    <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
+                      <i class="ni ni-ui-04"></i>
+                    </div>
+                    <div class="media-body ml-3">
+                      <h5 class="heading text-warning mb-md-1">Library</h5>
+                      {{-- <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p> --}}
+                    </div>
+                  </a>
+                  @endif
                 </div>
               </div>
             </li>
