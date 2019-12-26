@@ -21,7 +21,7 @@
             <div class="row">
               <div class="col-lg-6">
                 {{-- <h1 class="display-3  text-white">Welcome back<span>{{Auth::user()->username}}</span></h1> --}}
-                <p class="lead  text-white">Input class name below. Class code will be automatically generated</p>
+                <p class="lead  text-white">Input class name and course name below. Class code will be automatically generated</p>
                 @if (count($errors)>0)
                     @foreach ($errors->all() as $error)
                       <div class="alert alert-danger" role="alert">
@@ -33,12 +33,12 @@
                   {{ csrf_field() }}
                     <div class="form-group mb-3">
                       <div class="input-group input-group-alternative">
-                          <input class="form-control" type="text" placeholder="Example : XII ?????? A/B/C/D" name="class_name" value="{{old('class_name')}}" autofocus>
+                          <input class="form-control" type="text" placeholder="Name of Class, Example : XII ?????? A/B/C/D" name="class_name" value="{{old('class_name')}}" autofocus>
                       </div>
                     </div>
                     <div class="form-group mb-3">
                       <div class="input-group input-group-alternative">
-                          <input class="form-control" type="text" placeholder="Example : MAPEL PABP" name="mapel" value="{{old('mapel')}}">
+                          <input class="form-control" type="text" placeholder="Name of Course, Example : MAPEL PABP" name="mapel" value="{{old('mapel')}}">
                       </div>
                     </div>
                     <div class="form-group">
