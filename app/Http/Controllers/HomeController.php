@@ -16,7 +16,7 @@ class HomeController extends Controller
         return view('register');
     }
 
-    public function process(Request $request)
+    public function loginProcess(Request $request)
     {
         $username = $request->username;
         $password = $request->password;
@@ -24,10 +24,39 @@ class HomeController extends Controller
         $user = User::where('username', $username)->where('password', $password)->first();
         
         if ($user) {
-            return view('teacher/landing');
+            return redirect('/teacher/landing');
         }
         else {
             return redirect('/login');
         }
+    }
+
+    public function registerProcess(Request $request)
+    {
+        $name = $request->name;
+        $username = $request->username;
+        $email = $request->email;
+        $password = $request->password;
+        $phone = $request->phone;
+
+        $this->validate($request,[
+            'name' => 'required',
+            'username' => 'required|unique:users,username',
+            'password' => 'required',
+            'email' => 'required|unique:users,email',
+            'phone' => 'required|numeric'
+        ]);
+
+        User::insert(
+            [
+                'name' => $name,
+                'username' => $username,
+                'password' => $password,
+                'email' => $email,
+                'phone' => $phone,
+            ]
+        );
+
+        return redirect('/teacher/landing');
     }
 }
