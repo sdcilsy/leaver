@@ -1,5 +1,5 @@
 @extends('../template/master-landing')
-@section('title', 'Welcome to Leaver')
+@section('title', 'Landing page')
 @section('body')
   <main>
     <div class="position-relative">
@@ -20,8 +20,24 @@
           <div class="col px-0">
             <div class="row">
               <div class="col-lg-6">
-                <h1 class="display-3  text-white">Welcome back<span>{{ Auth::user()->name }}</span></h1>
-                <p class="lead  text-white">Leaver is a (edit soon)</p>
+                {{-- <h1 class="display-3  text-white">Welcome back<span>{{Auth::user()->username}}</span></h1> --}}
+                <p class="lead  text-white">Input class code below.</p>
+                @if (count($errors)>0)
+                    @foreach ($errors->all() as $error)
+                      <div class="alert alert-danger" role="alert">
+                        {{ $error }}
+                      </div>
+                    @endforeach
+                @endif
+                <form action="{{ url('/student/join/process') }}" method="POST">
+                  {{ csrf_field() }}
+                    <div class="form-group mb-3">
+                      <div class="input-group input-group-alternative">
+                          <input class="form-control" type="text" placeholder="Class code" name="token" value="{{old('token')}}" autofocus>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                  </form>
               </div>
             </div>
           </div>
@@ -33,19 +49,6 @@
           </svg>
         </div>
       </section>
-      <!-- 1st Hero Variation -->
     </div>
-    <section class="section bg-secondary" id="read">
-      <div class="container">
-        <div class="list-group">
-          <h2 class="text-center">Pilih Mapel</h2>
-          {{-- change id --> foreach id --}}
-          <a href="{{ url('/student/create/id') }}" class="list-group-item list-group-item-action">PABP (CONTOH IF CLICKED)</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
-        </div>
-      </div>
-    </section>
   </main>
   @endsection

@@ -18,12 +18,17 @@
   <!-- Argon CSS -->
   <link type="text/css" href="{{ asset('assets-nonadmin/css/argon.css?v=1.1.0') }}" rel="stylesheet">
   <script src="{{ asset('assets-ckeditor/ckeditor.js') }}"></script>
+  <style>
+    html {
+        scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body>
   <header class="header-global">
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
       <div class="container">
-        <a class="navbar-brand mr-lg-5" href="../index.html">
+        <a class="navbar-brand mr-lg-5" href="{{ url('/') }}">
           <img src="{{ asset('assets/img/brand/white.png') }}" alt="brand">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,37 +58,77 @@
               </a>
               <div class="dropdown-menu dropdown-menu-xl">
                 <div class="dropdown-menu-inner">
-                  <a href="https://demos.creative-tim.com/argon-design-system/docs/getting-started/overview.html" class="media d-flex align-items-center">
+                  @if (Auth::user()->role=='teacher')
+                  <a href="{{ url('/teacher/#myclass') }}" class="media d-flex align-items-center">
                     <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
                       <i class="ni ni-spaceship"></i>
                     </div>
                     <div class="media-body ml-3">
-                      <h6 class="heading text-primary mb-md-1">Getting started</h6>
-                      <p class="description d-none d-md-inline-block mb-0">Learn how to use Argon compiling Scss, change brand colors and more.</p>
+                      <h6 class="heading text-primary mb-md-1">My Class</h6>
+                      {{-- <p class="description d-none d-md-inline-block mb-0">Learn how to use Argon compiling Scss, change brand colors and more.</p> --}}
                     </div>
                   </a>
-                  <a href="https://demos.creative-tim.com/argon-design-system/docs/foundation/colors.html" class="media d-flex align-items-center">
+                  <a href="{{ url('/teacher/create') }}" class="media d-flex align-items-center">
                     <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
                       <i class="ni ni-palette"></i>
                     </div>
                     <div class="media-body ml-3">
-                      <h6 class="heading text-primary mb-md-1">Foundation</h6>
-                      <p class="description d-none d-md-inline-block mb-0">Learn more about colors, typography, icons and the grid system we used for Argon.</p>
+                      <h6 class="heading text-primary mb-md-1">Create New Class</h6>
+                      {{-- <p class="description d-none d-md-inline-block mb-0">Learn more about colors, typography, icons and the grid system we used for Argon.</p> --}}
                     </div>
                   </a>
-                  <a href="https://demos.creative-tim.com/argon-design-system/docs/components/alerts.html" class="media d-flex align-items-center">
+                  <a href="{{ url('/teacher/library') }}" class="media d-flex align-items-center">
                     <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
                       <i class="ni ni-ui-04"></i>
                     </div>
                     <div class="media-body ml-3">
-                      <h5 class="heading text-warning mb-md-1">Components</h5>
-                      <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p>
+                      <h5 class="heading text-warning mb-md-1">Library</h5>
+                      {{-- <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p> --}}
                     </div>
                   </a>
+                  @endif
+                  @if (Auth::user()->role == 'student')
+                  <a href="{{ url('/student/create') }}" class="media d-flex align-items-center">
+                    <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                      <i class="ni ni-spaceship"></i>
+                    </div>
+                    <div class="media-body ml-3">
+                      <h6 class="heading text-primary mb-md-1">Create new memories</h6>
+                      {{-- <p class="description d-none d-md-inline-block mb-0">Learn how to use Argon compiling Scss, change brand colors and more.</p> --}}
+                    </div>
+                  </a>
+                  <a href="{{ url('/student/#read') }}" class="media d-flex align-items-center">
+                    <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                      <i class="ni ni-palette"></i>
+                    </div>
+                    <div class="media-body ml-3">
+                      <h6 class="heading text-primary mb-md-1">Read my book</h6>
+                      {{-- <p class="description d-none d-md-inline-block mb-0">Learn more about colors, typography, icons and the grid system we used for Argon.</p> --}}
+                    </div>
+                  </a>
+                  <a href="{{ url('/student/join') }}" class="media d-flex align-items-center">
+                    <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                      <i class="ni ni-planet"></i>
+                    </div>
+                    <div class="media-body ml-3">
+                      <h5 class="heading text-warning mb-md-1">Join Class</h5>
+                      {{-- <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p> --}}
+                    </div>
+                  </a>
+                  <a href="{{ url('/student/library') }}" class="media d-flex align-items-center">
+                    <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
+                      <i class="ni ni-ui-04"></i>
+                    </div>
+                    <div class="media-body ml-3">
+                      <h5 class="heading text-warning mb-md-1">Library</h5>
+                      {{-- <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p> --}}
+                    </div>
+                  </a>
+                  @endif
                 </div>
               </div>
             </li>
-            <li class="nav-item dropdown">
+            {{-- <li class="nav-item dropdown">
               <a href="#" class="nav-link" data-toggle="dropdown" role="button">
                 <i class="ni ni-collection d-lg-none"></i>
                 <span class="nav-link-inner--text">Examples</span>
@@ -94,31 +139,17 @@
                 <a href="../examples/login.html" class="dropdown-item">Login</a>
                 <a href="../examples/register.html" class="dropdown-item">Register</a>
               </div>
-            </li>
+            </li> --}}
           </ul>
           <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-            <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
-                <i class="fa fa-facebook-square"></i>
-                <span class="nav-link-inner--text d-lg-none">Facebook</span>
+            <li>
+              <a class="nav-link nav-link-icon">
+                <span class="nav-link-inner--text">{{ Auth::user()->username }}</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="https://www.instagram.com/leaverofficial" target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
-                <i class="fa fa-instagram"></i>
-                <span class="nav-link-inner--text d-lg-none">Instagram</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="https://twitter.com/leaverofficial" target="_blank" data-toggle="tooltip" title="Follow us on Twitter">
-                <i class="fa fa-twitter-square"></i>
-                <span class="nav-link-inner--text d-lg-none">Twitter</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="https://github.com/mramdani551/leaver" target="_blank" data-toggle="tooltip" title="Star us on Github">
-                <i class="fa fa-github"></i>
-                <span class="nav-link-inner--text d-lg-none">Github</span>
+            <li>
+              <a class="nav-link nav-link-icon" href="{{ url('/logout') }}">
+                <span class="nav-link-inner--text">Logout</span>
               </a>
             </li>
           </ul>

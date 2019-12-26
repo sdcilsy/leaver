@@ -22,7 +22,7 @@
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
       <div class="container">
         <a class="navbar-brand mr-lg-5" href="{{ url('/') }}">
-          <img alt="image" src="./assets/img/brand/white.png">
+          {{-- <img alt="image" src="./assets/img/brand/white.png"> --}}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -43,8 +43,8 @@
               </div>
             </div>
           </div>
-          <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-            <li class="nav-item dropdown">
+          {{-- <ul class="navbar-nav navbar-nav-hover align-items-lg-center"> --}}
+            {{-- <li class="nav-item dropdown">
               <a href="#" class="nav-link" data-toggle="dropdown" role="button">
                 <i class="ni ni-ui-04 d-lg-none"></i>
                 <span class="nav-link-inner--text">Components</span>
@@ -80,21 +80,20 @@
                   </a>
                 </div>
               </div>
-            </li>
-            <li class="nav-item dropdown">
+            </li> --}}
+            {{-- <li class="nav-item dropdown">
               <a href="#" class="nav-link" data-toggle="dropdown" role="button">
                 <i class="ni ni-collection d-lg-none"></i>
-                <span class="nav-link-inner--text">Examples</span>
+                <span class="nav-link-inner--text">Quicklink</span>
               </a>
               <div class="dropdown-menu">
-                <a href="./examples/landing.html" class="dropdown-item">Landing</a>
-                <a href="./examples/profile.html" class="dropdown-item">Profile</a>
-                <a href="./examples/login.html" class="dropdown-item">Login</a>
-                <a href="./examples/register.html" class="dropdown-item">Register</a>
+                <a href="{{ url('/') }}" class="dropdown-item">Home</a>
+                <a href="{{ url('/login') }}" class="dropdown-item">Login</a>
+                <a href="{{ url('/register') }}" class="dropdown-item">Register</a>
               </div>
             </li>
-          </ul>
-          <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+          </ul> --}}
+          {{-- <ul class="navbar-nav align-items-lg-center ml-lg-auto">
             <li class="nav-item">
               <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
                 <i class="fa fa-facebook-square"></i>
@@ -119,7 +118,7 @@
                 <span class="nav-link-inner--text d-lg-none">Github</span>
               </a>
             </li>
-          </ul>
+          </ul> --}}
         </div>
       </div>
     </nav>

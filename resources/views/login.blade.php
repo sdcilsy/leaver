@@ -17,7 +17,10 @@
       <div class="row justify-content-center">
         <div class="col-lg-5">
           <div class="card bg-secondary shadow border-0">
-            <div class="card-header bg-white pb-5">
+            
+            {{-- sign in with google or github --}}
+
+            {{-- <div class="card-header bg-white pb-5">
               <div class="text-muted text-center mb-3"><small>Sign in with</small></div>
               <div class="btn-wrapper text-center">
                 <a href="#" class="btn btn-neutral btn-icon">
@@ -33,19 +36,24 @@
                   <span class="btn-inner--text">Google</span>
                 </a>
               </div>
-            </div>
+            </div> --}}
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
-                <small>Or sign in with credentials</small>
+                <big>Sign in with your credentials</big><br>
+                @if (session()->get('msg'))
+                  <div class="alert alert-danger" role="alert">
+                    {{ session()->get('msg') }}
+                  </div>
+                @endif
               </div>
-              <form action="/login/process" method="POST">
+              <form action="{{ url('/login/process') }}" method="POST">
               {{ csrf_field() }}
                 <div class="form-group mb-3">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-user-run"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Username" type="text" name="username">
+                      <input class="form-control" placeholder="Username" type="text" name="username">
                   </div>
                 </div>
                 <div class="form-group">
@@ -70,7 +78,7 @@
           </div>
           <div class="row mt-3">
             <div class="col-6">
-              <a href="#" class="text-light"><small>Forgot password?</small></a>
+              <a href="{{ url('/reset') }}" class="text-light"><small>Forgot password?</small></a>
             </div>
             <div class="col-6 text-right">
               <a href="{{ url('register') }}" class="text-light"><small>Create new account</small></a>

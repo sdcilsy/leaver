@@ -1,5 +1,5 @@
 @extends('../template/master-landing')
-@section('title', 'Welcome to Leaver')
+@section('title', 'Read your vbook')
 @section('body')
   <main>
     <div class="position-relative">
@@ -20,8 +20,8 @@
           <div class="col px-0">
             <div class="row">
               <div class="col-lg-6">
-                <h1 class="display-3  text-white">Welcome back<span>{{ Auth::user()->name }}</span></h1>
-                <p class="lead  text-white">Leaver is a (edit soon)</p>
+                <h1 class="display-3  text-white">Baca ulang materi yang ada gan..(edit soon)</span></h1>
+                <p class="lead  text-white">Rereadable.</p>
               </div>
             </div>
           </div>
@@ -35,16 +35,10 @@
       </section>
       <!-- 1st Hero Variation -->
     </div>
-    <section class="section bg-secondary" id="read">
+    <section class="section bg-secondary">
       <div class="container">
         <div class="list-group">
-          <h2 class="text-center">Pilih Mapel</h2>
-          {{-- change id --> foreach id --}}
-          <a href="{{ url('/student/create/id') }}" class="list-group-item list-group-item-action">PABP (CONTOH IF CLICKED)</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
-        </div>
+          <h2 class="text-center">OUTPUT BOOK</h2>
       </div>
     </section>
   </main>
