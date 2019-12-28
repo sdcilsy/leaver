@@ -14,19 +14,6 @@
 //     return view('examples-dashboard/icons');
 // });
 
-<<<<<<< HEAD
-Route::post('/login/process','HomeController@loginProcess');
-Route::post('/register/process','HomeController@registerProcess');
-// Admin routes
-Route::get('/admin','admincontroller@index');
-// Student routes
-Route::get('/student', 'studentController@index');
-Route::get('/student/create', 'studentController@create');
-Route::get('/student/read', 'studentController@read');
-Route::get('/student/inventory', 'studentController@inventory');
-// Teacher routes
-Route::get('/teacher/landing', 'teacherController@landing');
-=======
 Route::get('/admin','admincontroller@index');
 Route::get('/logout', function () {
     Auth::logout();
@@ -65,4 +52,3 @@ Route::middleware(['auth','rolet'])->group(function() {
     Route::post('/teacher/create/process', 'teacherController@process');
     Route::get('/teacher/library', 'teacherController@library');
 });
->>>>>>> 8581eeff0bda031e871d0c6da1b2147558962fa3

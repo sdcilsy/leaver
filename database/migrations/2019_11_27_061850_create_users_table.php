@@ -20,13 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('role');
             $table->string('password', 255);
             $table->string('email');
-<<<<<<< HEAD
-            $table->string('phone');
-            $table->string('course')->nullable();
-=======
             // $table->string('phone');
             $table->string('course');
->>>>>>> 8581eeff0bda031e871d0c6da1b2147558962fa3
             $table->timestamps();
         });
     }

@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class TeacherController extends Controller
+class teacherController extends Controller
 {
-    public function landing(){
+    public function index(){
         return view('teacher/landing');
     }
     public function class(){

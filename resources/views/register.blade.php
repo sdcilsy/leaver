@@ -45,37 +45,22 @@
                     @endforeach
                 @endif
               </div>
-<<<<<<< HEAD
-              <form action="/register/process" method="POST">
-                {{csrf_field()}}
-=======
               <form action="{{ url('/register/process') }}" method="POST">
                 @csrf
->>>>>>> 8581eeff0bda031e871d0c6da1b2147558962fa3
                 <div class="form-group">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-<<<<<<< HEAD
-                    <input class="form-control" placeholder="Name" type="text" name="name">
-=======
                     <input class="form-control" type="text" name="name" placeholder="Fullname" value="{{old('name')}}">
->>>>>>> 8581eeff0bda031e871d0c6da1b2147558962fa3
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
-<<<<<<< HEAD
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <input class="form-control" placeholder="Username" type="text" name="username">
-=======
                       <span class="input-group-text"><i class="ni ni-user-run"></i></span>
                     </div>
                     <input class="form-control" name="username" placeholder="Username" value="{{old('username')}}" type="text">
->>>>>>> 8581eeff0bda031e871d0c6da1b2147558962fa3
                   </div>
                 </div>
                 <div class="form-group">
@@ -83,19 +68,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-<<<<<<< HEAD
-                    <input class="form-control" placeholder="Email" type="email" name="email">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                    </div>
-                    <input class="form-control" placeholder="Password" type="password" name="password">
-=======
                     <input class="form-control" name="email" placeholder="Email" value="{{old('email')}}" type="email">
->>>>>>> 8581eeff0bda031e871d0c6da1b2147558962fa3
                   </div>
                 </div>
                 <div class="form-group">
@@ -103,11 +76,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-<<<<<<< HEAD
-                    <input class="form-control" placeholder="Phone" type="text" name="phone">
-=======
                     <input class="form-control" name="password" placeholder="Password" value="{{old('username')}}" type="password">
->>>>>>> 8581eeff0bda031e871d0c6da1b2147558962fa3
                   </div>
                 </div>
                 <div class="form-group">
@@ -130,12 +99,7 @@
                   </div>
                 </div>
                 <div class="text-center">
-<<<<<<< HEAD
-                  <!-- <button type="button" class="btn btn-primary mt-4">Create account</button> -->
-                  <input type="submit" class="btn btn-primary mt-4" value="Create account">
-=======
                   <button type="submit" class="btn btn-primary mt-4" name="submit">Create account</button>
->>>>>>> 8581eeff0bda031e871d0c6da1b2147558962fa3
                 </div>
               </form>
             </div>
