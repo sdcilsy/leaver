@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
                 'name' => $faker->name,
                 'username' => $faker->username,
                 'role' => 'student',
-                'password' => Hash::make('12345'),
+                'password' => Hash::make('1234567'),
                 'email' => $faker->email,
                 // 'phone' => $faker->phoneNumber,
                 'course' => ''
