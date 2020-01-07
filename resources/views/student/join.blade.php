@@ -29,6 +29,11 @@
                       </div>
                     @endforeach
                 @endif
+                @if (session('msg'))
+                  <div class="alert alert-danger" role="alert">
+                    {{ session('msg') }}
+                  </div>
+                @endif
                 <form action="{{ url('/student/join/process') }}" method="POST">
                   {{ csrf_field() }}
                     <div class="form-group mb-3">

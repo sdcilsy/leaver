@@ -47,14 +47,22 @@ class studentController extends Controller
 
         $id_course = Course::where('token', $token)->first();
         // kasih validate
-        Enrollment::insert([
-            'id_student' => Auth::user()->id,
-            'id_course' => $id_course->id,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
+        $validate = $request->validate([
+            'token'=>'required|max:10'
         ]);
-        return redirect('student');
+        if($id_course){
+            Enrollment::insert([
+                'id_student' => Auth::user()->id,
+                'id_course' => $id_course->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+            return redirect('student');
+        }
         // kasih notif
+        $msg = "Token not found";
+        return redirect('student/join')->with(['msg'=>$msg]);
+        
     }
     public function library(){
         return view('student/inventory');
