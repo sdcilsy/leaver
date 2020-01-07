@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2019 at 03:03 PM
+-- Generation Time: Jan 07, 2020 at 09:06 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -46,9 +46,42 @@ CREATE TABLE `bags` (
 CREATE TABLE `courses` (
   `id` bigint(20) NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_teacher` bigint(20) NOT NULL,
+  `token` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`id`, `name`, `id_teacher`, `token`, `created_at`, `updated_at`) VALUES
+(4, 'PABP XII', 6, 'CHrS7m', '2020-01-06 23:01:13', '2020-01-06 23:01:13'),
+(5, 'PABP XI', 6, 'zqMB9a', '2020-01-06 23:02:16', '2020-01-06 23:02:16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `enrollment`
+--
+
+CREATE TABLE `enrollment` (
+  `id` int(11) NOT NULL,
+  `id_student` bigint(20) NOT NULL,
+  `id_course` bigint(20) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `enrollment`
+--
+
+INSERT INTO `enrollment` (`id`, `id_student`, `id_course`, `created_at`, `updated_at`) VALUES
+(1, 3, 5, '2020-01-07 06:53:01', '0000-00-00 00:00:00'),
+(2, 5, 4, '2020-01-07 00:49:57', '2020-01-07 00:49:57'),
+(3, 5, 5, '2020-01-07 01:05:14', '2020-01-07 01:05:14');
 
 -- --------------------------------------------------------
 
@@ -77,7 +110,8 @@ INSERT INTO `users` (`id`, `name`, `username`, `role`, `password`, `email`, `cou
 (2, 'Harja Wibowo', 'gpermata', 'student', '$2y$10$r7MAXjCt/3MMQd58YmclZuNeLKSZBxKvq2wHTtIIhJkeE349xWO7q', 'azalea94@gmail.com', '', NULL, NULL),
 (3, 'Amelia Yuliarti S.E.', 'nrima.astuti', 'student', '$2y$10$9Y1wHkLVU8v9htyK7X6YK.rWGQoWRvtpsnsRPrE14SnesWY4OUu5u', 'safitri.ifa@yahoo.co.id', '', NULL, NULL),
 (4, 'Marwata Sirait', 'gyuniar', 'student', '$2y$10$8BniUs6Tci3wE4pRHbZmYO4cznzPBrr.EaTelG60yuaQWud6Oo51K', 'ssaptono@handayani.net', '', NULL, NULL),
-(5, 'Baktianto Narpati S.Ked', 'dinda67', 'student', '$2y$10$mAJoXbQuOPmQXr5JaxhbTuglO5UbaEHWX38ZVceQyIIuDK9G.SmWS', 'janet.widiastuti@purwanti.biz', '', NULL, NULL);
+(5, 'Baktianto Narpati S.Ked', 'dinda67', 'student', '$2y$10$mAJoXbQuOPmQXr5JaxhbTuglO5UbaEHWX38ZVceQyIIuDK9G.SmWS', 'janet.widiastuti@purwanti.biz', '', NULL, NULL),
+(6, 'tombo0', 'tombo0', 'teacher', '$2y$10$7bWPGh4Y/7UYTph4BBmZg.42HasvaMQjFL7v7puMwXRlRBtAqkWta', 'tombo0@gmail.com', NULL, '2019-12-30 07:12:59', '2019-12-30 07:12:59');
 
 --
 -- Indexes for dumped tables
@@ -94,7 +128,17 @@ ALTER TABLE `bags`
 -- Indexes for table `courses`
 --
 ALTER TABLE `courses`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `token` (`token`),
+  ADD KEY `id_teacher` (`id_teacher`);
+
+--
+-- Indexes for table `enrollment`
+--
+ALTER TABLE `enrollment`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_student` (`id_student`),
+  ADD KEY `id_course` (`id_course`);
 
 --
 -- Indexes for table `users`
@@ -111,13 +155,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `enrollment`
+--
+ALTER TABLE `enrollment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -129,6 +179,19 @@ ALTER TABLE `users`
 ALTER TABLE `bags`
   ADD CONSTRAINT `bags_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `bags_ibfk_2` FOREIGN KEY (`id_course`) REFERENCES `courses` (`id`);
+
+--
+-- Constraints for table `courses`
+--
+ALTER TABLE `courses`
+  ADD CONSTRAINT `courses_ibfk_1` FOREIGN KEY (`id_teacher`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `enrollment`
+--
+ALTER TABLE `enrollment`
+  ADD CONSTRAINT `enrollment_ibfk_1` FOREIGN KEY (`id_student`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `enrollment_ibfk_2` FOREIGN KEY (`id_course`) REFERENCES `courses` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

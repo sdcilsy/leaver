@@ -38,10 +38,9 @@
     <section class="section bg-secondary" id="myclass">
       <div class="container">
         <div class="list-group">
-          <a href="{{ url('/teacher/class/id/std_id') }}" class="list-group-item list-group-item-action">MUHAMAD RAMDANI (CONTOH IF CLICKED)</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA STUDENT NAME</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA STUDENT NAME</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA STUDENT NAME</a>
+          @foreach ($students as $user)
+            <a href="{{ url('/teacher/class/id/std_id') }}" class="list-group-item list-group-item-action">{{$user->name}}</a>
+          @endforeach
         </div>
       </div>
     </section>

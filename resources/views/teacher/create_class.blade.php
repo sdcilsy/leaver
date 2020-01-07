@@ -33,12 +33,7 @@
                   {{ csrf_field() }}
                     <div class="form-group mb-3">
                       <div class="input-group input-group-alternative">
-                          <input class="form-control" type="text" placeholder="Name of Class, Example : XII ?????? A/B/C/D" name="class_name" value="{{old('class_name')}}" autofocus>
-                      </div>
-                    </div>
-                    <div class="form-group mb-3">
-                      <div class="input-group input-group-alternative">
-                          <input class="form-control" type="text" placeholder="Name of Course, Example : MAPEL PABP" name="mapel" value="{{old('mapel')}}">
+                          <input class="form-control" type="text" placeholder="Course Name" name="name" value="{{old('mapel')}}">
                       </div>
                     </div>
                     <div class="form-group">

@@ -85,11 +85,9 @@
       <div class="container">
         <div class="list-group">
           <h2 class="text-center">List Mapel</h2>
-          {{-- change id --> foreach id --}}
-          <a href="{{ url('/student/read/id') }}" class="list-group-item list-group-item-action">PABP (CONTOH IF CLICKED)</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
+          @foreach ($courses as $course)
+            <a href="{{ url('/student/read/id') }}" class="list-group-item list-group-item-action">{{$course->name}}</a>
+          @endforeach
         </div>
       </div>
     </section>

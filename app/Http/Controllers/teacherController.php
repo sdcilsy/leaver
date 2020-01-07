@@ -3,15 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use App\Course;
+use App\Enrollment;
 
 class teacherController extends Controller
 {
     public function index(){
-        return view('teacher/landing');
+        $courses = Course::get();
+        return view('teacher/landing', ['courses' => $courses]);
     }
-    public function class(){
-        return view('teacher/class');
+    public function class($std_id){
+        $students = Enrollment::join('users', 'enrollment.id_student', '=', 'users.id')
+                                ->join('courses', 'enrollment.id_course', '=', 'courses.id')
+                                ->select('users.name')
+                                ->get();
+        return view('teacher/class', ['students' => $students]);
     }
     public function student_progress(){
         return view('teacher/student');
@@ -23,13 +33,23 @@ class teacherController extends Controller
         return "library";
     }
     public function process(Request $request){
-        $class = $request->class_name;
+        $id_teacher = Auth::user()->id;
+        $name = $request->name;
         $token = $request->token;
         $validate = $request->validate([
-            'class_name'=>'required|max:100',
+            'name'=>'required|max:100',
         ]);
         // insert to database.., create new column/table
-        return "Class : $class, token : $token successfully created!";
+
+        Course::insert([
+            'name' => $name,
+            'id_teacher' => $id_teacher,
+            'token' => $token,
+            'created_at'=>Carbon::now(),
+            'updated_at'=>Carbon::now()
+
+        ]);
+        return redirect('/teacher');
     }
     public function new_class(){
         $length = 6;

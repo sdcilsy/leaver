@@ -4,12 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
+use App\Enrollment;
+use App\Course;
 
 class studentController extends Controller
 {
     public function index()
     {
-        return view('student/landing');
+        $courses = Enrollment::join('users', 'enrollment.id_student', '=', 'users.id')
+                                ->join('courses', 'enrollment.id_course', '=', 'courses.id')
+                                ->where('users.id', Auth::user()->id)
+                                ->select('courses.name')
+                                ->get();
+        return view('student/landing', ['courses' => $courses]);
     }
     public function create(){
         return view('student/create');
@@ -33,7 +43,18 @@ class studentController extends Controller
         return view('student/join');
     }
     public function join_process(Request $request){
-        return "Success join with token code $request->token";
+        $token = $request->token;
+
+        $id_course = Course::where('token', $token)->first();
+        // kasih validate
+        Enrollment::insert([
+            'id_student' => Auth::user()->id,
+            'id_course' => $id_course->id,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        return redirect('student');
+        // kasih notif
     }
     public function library(){
         return view('student/inventory');
