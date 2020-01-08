@@ -22,7 +22,13 @@ class studentController extends Controller
         return view('student/landing', ['courses' => $courses]);
     }
     public function create(){
-        return view('student/create');
+        $courses = Enrollment::join('users', 'enrollment.id_student', '=', 'users.id')
+                                ->join('courses', 'enrollment.id_course', '=', 'courses.id')
+                                ->where('users.id', Auth::user()->id)
+                                ->select('courses.name')
+                                ->get();
+
+        return view('student/create', ['courses' => $courses]);
     }
     public function create_process(Request $request){
         $validate = $request->validate([
