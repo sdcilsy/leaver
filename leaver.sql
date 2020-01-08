@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2020 at 09:06 AM
+-- Generation Time: Jan 08, 2020 at 05:34 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -29,8 +29,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bags` (
-  `id_doc` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
   `id_user` bigint(20) NOT NULL,
   `id_course` bigint(20) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
