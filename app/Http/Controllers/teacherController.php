@@ -20,6 +20,7 @@ class teacherController extends Controller
         $students = Enrollment::join('users', 'enrollment.id_student', '=', 'users.id')
                                 ->join('courses', 'enrollment.id_course', '=', 'courses.id')
                                 ->select('users.name')
+                                ->where('courses.id', $std_id)
                                 ->get();
         return view('teacher/class', ['students' => $students]);
     }
