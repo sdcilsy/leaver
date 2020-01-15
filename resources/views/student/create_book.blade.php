@@ -48,10 +48,10 @@
         {{ csrf_field() }}
           <div class="form-group mb-3">
             <div class="input-group input-group-alternative">
-                <input class="form-control" type="text" placeholder="Book name" name="book_name" value="{{old('book_name')}}">
+                <input class="form-control" type="text" placeholder="Book name" name="name" value="{{old('name')}}">
             </div>
           </div>
-          <textarea class="ckeditor" id="ckedtor"></textarea>
+          <textarea name="content" class="ckeditor" id="ckedtor"></textarea>
           <br>
           <button type="submit" class="btn btn-primary" name="submit">Submit</button>
         </form>

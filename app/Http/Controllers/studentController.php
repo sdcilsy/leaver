@@ -33,9 +33,11 @@ class studentController extends Controller
     }
     public function create_process(Request $request){
         $validate = $request->validate([
-            'book_name'=>'required|max:100'
+            'name'=>'required|max:100',
+            'content'=>'required'
         ]);
-        return "Successfull created";
+        // Insert to database
+        return "Successfull created $request->name, $request->content";
     }
     public function create_book(){
         return view('student/create_book');
