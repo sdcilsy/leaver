@@ -38,8 +38,8 @@
     <section class="section bg-secondary" id="myclass">
       <div class="container">
         <div class="list-group">
-          @foreach ($students as $user)
-            <a href="{{ url('/teacher/class/id/std_id') }}" class="list-group-item list-group-item-action">{{$user->name}}</a>
+          @foreach ($students as $student)
+            <a href="{{ url('/teacher/class')}}/{{ $cs_id }}/{{ $student->id }}" class="list-group-item list-group-item-action">{{$student->name}}</a>
           @endforeach
         </div>
       </div>
