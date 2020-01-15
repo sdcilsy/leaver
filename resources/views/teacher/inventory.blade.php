@@ -29,7 +29,7 @@
                       </div>
                     @endforeach
                 @endif
-                <form action="{{ url('/student/library/process') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/teacher/library/process') }}" method="POST" enctype="multipart/form-data">
                   {{ csrf_field() }}
                     <div class="form-group mb-3">
                       <div class="input-group input-group-alternative">

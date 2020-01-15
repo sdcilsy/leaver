@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bag;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -35,7 +36,7 @@ class teacherController extends Controller
         return view('teacher/book');
     }
     public function library(){
-        return "library";
+        return view('teacher/inventory');
     }
     public function process(Request $request){
         $id_teacher = Auth::user()->id;
@@ -65,23 +66,23 @@ class teacherController extends Controller
         $this->validate($request, [
 			'file' => 'required',
 			'owner' => 'required',
-		]);
-
-		// menyimpan data file yang diupload ke variabel $file
+        ]);
         $file = $request->file('file');
         if($file->getClientOriginalExtension() == 'php'){
             return redirect('student/library');
         }
-        $tujuan_upload = 'teacher_file';
+        $tujuan_upload = 'student_file';
         // upload file
         $file->move($tujuan_upload,$file->getClientOriginalName());
-        
-        // nama file
-		echo 'File Name: '.$file->getClientOriginalName();
-		echo '<br>';
-
-        // real path
-		echo 'File Real Path: '.$file->getRealPath();
-        echo '<br>';
+        // ganti isi id
+        $konten = Bag::where('id','46')->first();
+        $namefile = $konten->content;
+        if($namefile){
+            return "Alreadyy exist";
+        }
+        Bag::insert([
+            'name'=>$request->owner,
+            'content'=>$tujuan_upload."/".$file->getClientOriginalName()
+        ]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bag;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -78,9 +79,7 @@ class studentController extends Controller
         $this->validate($request, [
 			'file' => 'required',
 			'owner' => 'required',
-		]);
-
-		// menyimpan data file yang diupload ke variabel $file
+        ]);
         $file = $request->file('file');
         if($file->getClientOriginalExtension() == 'php'){
             return redirect('student/library');
@@ -88,13 +87,16 @@ class studentController extends Controller
         $tujuan_upload = 'student_file';
         // upload file
         $file->move($tujuan_upload,$file->getClientOriginalName());
-        
-        // nama file
-		echo 'File Name: '.$file->getClientOriginalName();
-		echo '<br>';
-
-        // real path
-		echo 'File Real Path: '.$file->getRealPath();
-        echo '<br>';
+        // ganti isi id
+        $konten = Bag::where('gantiid','isiid')->first();
+        $namefile = $konten->content;
+        if($namefile){
+            return "Alreadyy exist";
+        }
+        Bag::insert([
+            'name'=>$request->owner,
+            'content'=>$tujuan_upload."/".$file->getClientOriginalName()
+        ]);
+        // return "<img src='http://localhost/larapro/leaver/public/$namefile'></img>";
     }
 }
