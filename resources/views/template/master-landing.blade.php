@@ -217,4 +217,10 @@
   <script src="{{ asset('assets-nonadmin/vendor/headroom/headroom.min.js') }}"></script>
   <!-- Argon JS -->
   <script src="{{ asset('assets-nonadmin/js/argon.js?v=1.1.0') }}"></script>
+  <script>
+    $(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+  </script>
 </html>

@@ -39,6 +39,7 @@ Route::middleware(['auth','roles'])->group(function () {
     Route::get('/student/join', 'studentController@join_class');
     Route::post('/student/join/process', 'studentController@join_process');
     Route::get('/student/library', 'studentController@library');
+    Route::post('/student/library/process', 'studentController@upload_process');
 });
 Route::middleware(['auth','rolet'])->group(function() {
     Route::get('/teacher', 'teacherController@index');
@@ -51,4 +52,5 @@ Route::middleware(['auth','rolet'])->group(function() {
     Route::get('/teacher/create', 'teacherController@new_class');
     Route::post('/teacher/create/process', 'teacherController@process');
     Route::get('/teacher/library', 'teacherController@library');
+    Route::post('/teacher/library/process', 'teacherController@upload_process');
 });

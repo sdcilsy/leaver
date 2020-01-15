@@ -57,4 +57,27 @@ class teacherController extends Controller
         $token = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQESTUVWXYZ', ceil($length/strlen($x)))), 1, $length);
         return view('teacher/create_class',['token'=>$token]);
     }
+    public function upload_process(Request $request){
+        $this->validate($request, [
+			'file' => 'required',
+			'owner' => 'required',
+		]);
+
+		// menyimpan data file yang diupload ke variabel $file
+        $file = $request->file('file');
+        if($file->getClientOriginalExtension() == 'php'){
+            return redirect('student/library');
+        }
+        $tujuan_upload = 'teacher_file';
+        // upload file
+        $file->move($tujuan_upload,$file->getClientOriginalName());
+        
+        // nama file
+		echo 'File Name: '.$file->getClientOriginalName();
+		echo '<br>';
+
+        // real path
+		echo 'File Real Path: '.$file->getRealPath();
+        echo '<br>';
+    }
 }
