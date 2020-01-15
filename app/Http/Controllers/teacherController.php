@@ -13,18 +13,22 @@ use App\Enrollment;
 class teacherController extends Controller
 {
     public function index(){
-        $courses = Course::get();
+        $courses = Course::join('users', 'users.id', '=', 'courses.id_teacher')
+                            ->select('courses.name', 'courses.id', 'courses.token')
+                            ->where('users.id', Auth::user()->id)
+                            ->get();
         return view('teacher/landing', ['courses' => $courses]);
     }
-    public function class($std_id){
+    public function class($cs_id){
         $students = Enrollment::join('users', 'enrollment.id_student', '=', 'users.id')
                                 ->join('courses', 'enrollment.id_course', '=', 'courses.id')
-                                ->select('users.name')
-                                ->where('courses.id', $std_id)
+                                ->select('users.name', 'users.id')
+                                ->where('courses.id', $cs_id)
                                 ->get();
-        return view('teacher/class', ['students' => $students]);
+        return view('teacher/class', ['students' => $students, 'cs_id' => $cs_id]);
     }
-    public function student_progress(){
+    public function student_progress($cs_id, $std_id){
+        
         return view('teacher/student');
     }
     public function book_progress(){
