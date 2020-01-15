@@ -13,7 +13,10 @@ use App\Enrollment;
 class teacherController extends Controller
 {
     public function index(){
-        $courses = Course::get();
+        $courses = Course::join('users', 'users.id', '=', 'courses.id_teacher')
+                            ->select('courses.name')
+                            ->where('users.id', Auth::user()->id)
+                            ->get();
         return view('teacher/landing', ['courses' => $courses]);
     }
     public function class($std_id){
