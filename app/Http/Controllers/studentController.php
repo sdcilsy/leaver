@@ -10,6 +10,8 @@ use Carbon\Carbon;
 
 use App\Enrollment;
 use App\Course;
+use App\Book;
+use App\Note;
 
 class studentController extends Controller
 {
@@ -18,7 +20,7 @@ class studentController extends Controller
         $courses = Enrollment::join('users', 'enrollment.id_student', '=', 'users.id')
                                 ->join('courses', 'enrollment.id_course', '=', 'courses.id')
                                 ->where('users.id', Auth::user()->id)
-                                ->select('courses.name')
+                                ->select('courses.name', 'courses.id')
                                 ->get();
         return view('student/landing', ['courses' => $courses]);
     }
@@ -37,13 +39,26 @@ class studentController extends Controller
             'content'=>'required'
         ]);
         // Insert to database
-        return "Successfull created $request->name, $request->content";
+        Note::insert([
+            'name' => $request->name,
+            'content' => $request->content,
+            'student_id' => Auth::user()->id,
+            'course_id' => $cs_id,
+        ]);
+        return "";
     }
     public function create_book(){
         return view('student/create_book');
     }
-    public function read(){
-        return view('student/read');
+    public function read($cs_id){
+        $notes = Note::join('users', 'notes.student_id', '=', 'users.id')
+                    ->join('courses', 'notes.course_id', '=', 'courses.id')
+                    ->where('users.id', Auth::user()->id)
+                    ->where('courses.id', $cs_id)
+                    ->select('notes.name', 'notes.id')
+                    ->get();
+
+        return view('student/read', ['cs_id' => $cs_id, 'notes' => $notes]);
     }
     public function read_book(){
         return view('student/read_book');

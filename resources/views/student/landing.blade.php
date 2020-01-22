@@ -86,7 +86,7 @@
         <div class="list-group">
           <h2 class="text-center">List Mapel</h2>
           @foreach ($courses as $course)
-            <a href="{{ url('/student/read/id') }}" class="list-group-item list-group-item-action">{{$course->name}}</a>
+            <a href="{{ url('/student/read') }}/{{ $course->id }}" class="list-group-item list-group-item-action">{{$course->name}}</a>
           @endforeach
         </div>
       </div>

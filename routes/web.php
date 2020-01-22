@@ -33,9 +33,9 @@ Route::middleware(['auth','roles'])->group(function () {
     // change id to --> {id}
     Route::get('/student/create/id', 'studentController@create_book');
     // change id to --> {id}
-    Route::get('/student/read/id', 'studentController@read');
+    Route::get('/student/read/{cs_id}', 'studentController@read');
     // change book_id to --> {book_id}
-    Route::get('/student/read/id/book_id', 'studentController@read_book');
+    Route::get('/student/read/{cs_id}/{note_id}', 'studentController@read_book');
     Route::get('/student/join', 'studentController@join_class');
     Route::post('/student/join/process', 'studentController@join_process');
     Route::get('/student/library', 'studentController@library');

@@ -38,12 +38,10 @@
     <section class="section bg-secondary">
       <div class="container">
         <div class="list-group">
-          <h2 class="text-center">List book's</h2>
-          {{-- change id --> foreach id --}}
-          <a href="{{ url('/student/read/id/book_id') }}" class="list-group-item list-group-item-action">Materi bab1 (CONTOH IF CLICKED)</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
-          <a href="{{ url('foreach') }}" class="list-group-item list-group-item-action">LOOP DATA CLASS NAME</a>
+          <h2 class="text-center">List Notes</h2>
+          @foreach ($notes as $note)
+            <a href="{{ url('/student/read') }}/{{ $cs_id }}/{{ $note->id }}" class="list-group-item list-group-item-action">{{ $note->name }}</a>
+          @endforeach
         </div>
       </div>
     </section>
