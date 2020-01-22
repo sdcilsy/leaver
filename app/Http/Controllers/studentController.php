@@ -89,7 +89,12 @@ class studentController extends Controller
         
     }
     public function library(){
-        return view('student/inventory');
+        $libraries = Book::join('users', 'books.student_id', '=', 'users.id')
+                        ->where('users.id', Auth::user()->id)        
+                        ->select('books.name', 'books.id')
+                        ->get();
+
+        return view('student/library', ['libraries' => $libraries]);
     }
 
     public function upload_process(Request $request){
@@ -104,10 +109,15 @@ class studentController extends Controller
         // upload file
         $file->move($tujuan_upload,$file->getClientOriginalName());
         // ganti Bag ke Book
-        // Bag::insert([
-        //     'name'=>Auth::user()->username,
-        //     'content'=>$tujuan_upload."/".$file->getClientOriginalName()
-        // ]);
-        return $tujuan_upload."/".$file->getClientOriginalName()." success uploaded";
+        Book::insert([
+            'student_id' => Auth::user()->id,
+            'name' => $file->getClientOriginalName(),
+            'location' => $tujuan_upload."/".$file->getClientOriginalName(),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        return redirect('student/library');
+        // return $tujuan_upload."/".$file->getClientOriginalName()." success uploaded";
     }
 }

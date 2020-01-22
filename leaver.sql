@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2020 at 07:20 AM
+-- Generation Time: Jan 22, 2020 at 09:00 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -31,11 +31,20 @@ SET time_zone = "+00:00";
 CREATE TABLE `books` (
   `id` int(11) NOT NULL,
   `student_id` bigint(20) NOT NULL,
-  `course_id` bigint(20) NOT NULL,
+  `course_id` bigint(20) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
   `location` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `books`
+--
+
+INSERT INTO `books` (`id`, `student_id`, `course_id`, `name`, `location`, `created_at`, `updated_at`) VALUES
+(3, 2, NULL, 'ASIO4ALL v2 Instruction Manual.pdf', 'student_file/ASIO4ALL v2 Instruction Manual.pdf', '2020-01-22 00:59:40', '2020-01-22 00:59:40'),
+(4, 2, NULL, 'ASIO4ALL v2 Instruction Manual.pdf', 'student_file/ASIO4ALL v2 Instruction Manual.pdf', '2020-01-22 00:59:48', '2020-01-22 00:59:48');
 
 -- --------------------------------------------------------
 
@@ -96,10 +105,17 @@ CREATE TABLE `notes` (
   `name` varchar(100) NOT NULL,
   `content` varchar(255) NOT NULL,
   `student_id` bigint(20) NOT NULL,
-  `courses_id` bigint(20) NOT NULL,
+  `course_id` bigint(20) NOT NULL,
   `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notes`
+--
+
+INSERT INTO `notes` (`id`, `name`, `content`, `student_id`, `course_id`, `create_at`, `updated_at`) VALUES
+(1, 'NOOONO', 'aksmdkamskdmak', 2, 4, '2020-01-22 07:17:13', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -166,7 +182,7 @@ ALTER TABLE `enrollment`
 ALTER TABLE `notes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `student_id` (`student_id`),
-  ADD KEY `courses_id` (`courses_id`);
+  ADD KEY `course_id` (`course_id`) USING BTREE;
 
 --
 -- Indexes for table `users`
@@ -183,7 +199,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `courses`
@@ -201,7 +217,7 @@ ALTER TABLE `enrollment`
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -238,7 +254,7 @@ ALTER TABLE `enrollment`
 --
 ALTER TABLE `notes`
   ADD CONSTRAINT `notes_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `notes_ibfk_2` FOREIGN KEY (`courses_id`) REFERENCES `courses` (`id`);
+  ADD CONSTRAINT `notes_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
