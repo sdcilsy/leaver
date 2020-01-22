@@ -65,24 +65,19 @@ class teacherController extends Controller
     public function upload_process(Request $request){
         $this->validate($request, [
 			'file' => 'required',
-			'owner' => 'required',
         ]);
         $file = $request->file('file');
         if($file->getClientOriginalExtension() == 'php'){
             return redirect('student/library');
         }
-        $tujuan_upload = 'student_file';
+        $tujuan_upload = 'teacher_file';
         // upload file
         $file->move($tujuan_upload,$file->getClientOriginalName());
-        // ganti isi id
-        $konten = Bag::where('id','46')->first();
-        $namefile = $konten->content;
-        if($namefile){
-            return "Alreadyy exist";
-        }
-        Bag::insert([
-            'name'=>$request->owner,
-            'content'=>$tujuan_upload."/".$file->getClientOriginalName()
-        ]);
+        // Ganti Bag ke Book
+        // Bag::insert([
+        //     'name'=>Auth::user()->username,
+        //     'content'=>$tujuan_upload."/".$file->getClientOriginalName()
+        // ]);
+        return $tujuan_upload."/".$file->getClientOriginalName()." success uploaded";
     }
 }

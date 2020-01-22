@@ -31,11 +31,6 @@
                 @endif
                 <form action="{{ url('/student/library/process') }}" method="POST" enctype="multipart/form-data">
                   {{ csrf_field() }}
-                    <div class="form-group mb-3">
-                      <div class="input-group input-group-alternative">
-                          <input class="form-control" type="text" placeholder="Owner" name="owner" value="{{old('owner')}}">
-                      </div>
-                    </div>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input" name="file" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">

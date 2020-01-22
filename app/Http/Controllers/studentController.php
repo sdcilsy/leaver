@@ -80,7 +80,6 @@ class studentController extends Controller
     public function upload_process(Request $request){
         $this->validate($request, [
 			'file' => 'required',
-			'owner' => 'required',
         ]);
         $file = $request->file('file');
         if($file->getClientOriginalExtension() == 'php'){
@@ -89,16 +88,11 @@ class studentController extends Controller
         $tujuan_upload = 'student_file';
         // upload file
         $file->move($tujuan_upload,$file->getClientOriginalName());
-        // ganti isi id
-        $konten = Bag::where('gantiid','isiid')->first();
-        $namefile = $konten->content;
-        if($namefile){
-            return "Alreadyy exist";
-        }
-        Bag::insert([
-            'name'=>$request->owner,
-            'content'=>$tujuan_upload."/".$file->getClientOriginalName()
-        ]);
-        // return "<img src='http://localhost/larapro/leaver/public/$namefile'></img>";
+        // ganti Bag ke Book
+        // Bag::insert([
+        //     'name'=>Auth::user()->username,
+        //     'content'=>$tujuan_upload."/".$file->getClientOriginalName()
+        // ]);
+        return $tujuan_upload."/".$file->getClientOriginalName()." success uploaded";
     }
 }
