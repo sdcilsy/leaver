@@ -47,7 +47,7 @@ class studentController extends Controller
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
-        return redirect('/student/read/$cs_id');
+        return redirect("/student/read/$request->cs_id");
     }
     public function create_book($cs_id){
         return view('student/create_book', ['cs_id' => $cs_id]);
@@ -69,8 +69,6 @@ class studentController extends Controller
                         ->select('notes.name', 'notes.content')
                         ->get();
         return view('student/read_book', ['notes' => $notes, 'cs_id' => $cs_id, 'note_id' => $note_id]);
-        // dd($notes);
-        // return $notes[0]->name;
     }
     public function join_class(){
         return view('student/join');
