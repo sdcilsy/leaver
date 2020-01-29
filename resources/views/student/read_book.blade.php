@@ -38,7 +38,20 @@
     <section class="section bg-secondary">
       <div class="container">
         <div class="list-group">
-          <h2 class="text-center">OUTPUT BOOK</h2>
+          {{-- <h2 class="text-center">OUTPUT BOOK</h2> --}}
+          <form action="{{ url('/student/update/process') }}" method="POST">
+            {{ csrf_field() }}
+              <input type="hidden" name="cs_id" value="{{$cs_id}}">
+              <input type="hidden" name="note_id" value="{{$note_id}}">
+              <div class="form-group mb-3">
+                <div class="input-group input-group-alternative">
+                    <input class="form-control" type="text" placeholder="Book name" name="name" value="{{$notes[0]->name}}">
+                </div>
+              </div>
+            <textarea name="content" class="ckeditor" id="ckedtor" value="{{$cs_id}}"></textarea>
+              <br>
+              <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+            </form>
       </div>
     </section>
   </main>

@@ -62,8 +62,15 @@ class studentController extends Controller
 
         return view('student/read', ['cs_id' => $cs_id, 'notes' => $notes]);
     }
-    public function read_book(){
-        return view('student/read_book');
+    public function read_book($cs_id, $note_id){
+        $notes = Note::join('users', 'notes.student_id', '=', 'users.id')
+                        ->join('courses', 'notes.course_id', '=', 'courses.id')
+                        ->where('users.id', Auth::user()->id)
+                        ->select('notes.name', 'notes.content')
+                        ->get();
+        return view('student/read_book', ['notes' => $notes, 'cs_id' => $cs_id, 'note_id' => $note_id]);
+        // dd($notes);
+        // return $notes[0]->name;
     }
     public function join_class(){
         return view('student/join');
@@ -99,6 +106,9 @@ class studentController extends Controller
         return view('student/library', ['libraries' => $libraries]);
     }
 
+    public function update_process(Request $request){
+        return "GO BACK TO PREVIOS PAGE";
+    }
     public function upload_process(Request $request){
         $this->validate($request, [
 			'file' => 'required',
