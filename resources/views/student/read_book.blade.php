@@ -48,7 +48,7 @@
                     <input class="form-control" type="text" placeholder="Book name" name="name" value="{{$notes[0]->name}}">
                 </div>
               </div>
-            <textarea name="content" class="ckeditor" id="ckedtor" value="{{$cs_id}}"></textarea>
+            <textarea name="content" class="ckeditor" id="ckedtor">{{$notes[0]->content}}</textarea>
               <br>
               <button type="submit" class="btn btn-primary" name="submit">Submit</button>
             </form>
