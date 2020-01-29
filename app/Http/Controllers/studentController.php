@@ -28,7 +28,7 @@ class studentController extends Controller
         $courses = Enrollment::join('users', 'enrollment.id_student', '=', 'users.id')
                                 ->join('courses', 'enrollment.id_course', '=', 'courses.id')
                                 ->where('users.id', Auth::user()->id)
-                                ->select('courses.name')
+                                ->select('courses.name', 'courses.id')
                                 ->get();
 
         return view('student/create', ['courses' => $courses]);
@@ -43,12 +43,14 @@ class studentController extends Controller
             'name' => $request->name,
             'content' => $request->content,
             'student_id' => Auth::user()->id,
-            'course_id' => $cs_id,
+            'course_id' => $request->cs_id,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
-        return "";
+        return redirect('/student/read/$cs_id');
     }
-    public function create_book(){
-        return view('student/create_book');
+    public function create_book($cs_id){
+        return view('student/create_book', ['cs_id' => $cs_id]);
     }
     public function read($cs_id){
         $notes = Note::join('users', 'notes.student_id', '=', 'users.id')

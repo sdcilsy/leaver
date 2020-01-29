@@ -46,6 +46,7 @@
         @endif
         <form action="{{ url('/student/create/process') }}" method="POST">
         {{ csrf_field() }}
+          <input type="hidden" name="cs_id" value="{{$cs_id}}">
           <div class="form-group mb-3">
             <div class="input-group input-group-alternative">
                 <input class="form-control" type="text" placeholder="Book name" name="name" value="{{old('name')}}">
