@@ -20,7 +20,7 @@ Route::get('/logout', function () {
     return redirect('/');
 });
 Route::middleware(['guest'])->group(function () {
-    Route::get('/','HomeController@index');
+    Route::get('/','HomeController@index')->name('home');
     Route::get('/login','AuthController@login')->name('login');
     Route::get('/register','AuthController@register');
     Route::post('/register/process','AuthController@register_process');

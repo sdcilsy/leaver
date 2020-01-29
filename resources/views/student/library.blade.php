@@ -56,7 +56,7 @@
           <div class="list-group">
             <h2 class="text-center">Your Files</h2>
             @foreach ($libraries as $library) 
-              <a href="{{ url('/student/read') }}{{ $library->id }}" class="list-group-item list-group-item-action">{{ $library->name }}</a>
+              <a href="{{ route('home') }}/{{ $library->location }}" class="list-group-item list-group-item-action">{{ $library->name }}</a>
             @endforeach
           </div>
         </div>
