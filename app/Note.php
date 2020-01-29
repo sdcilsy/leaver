@@ -10,6 +10,8 @@ class Note extends Model
         'name',
         'content',
         'student_id',
-        'courses_id'
+        'courses_id',
+        'created_at',
+        'updated_at'
     ];
 }

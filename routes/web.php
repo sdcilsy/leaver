@@ -31,7 +31,7 @@ Route::middleware(['auth','roles'])->group(function () {
     Route::get('/student/create', 'studentController@create');
     Route::post('/student/create/process', 'studentController@create_process');
     // change id to --> {id}
-    Route::get('/student/create/id', 'studentController@create_book');
+    Route::get('/student/create/{cs_id}', 'studentController@create_book');
     // change id to --> {id}
     Route::get('/student/read/{cs_id}', 'studentController@read');
     // change book_id to --> {book_id}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2020 at 09:00 AM
+-- Generation Time: Jan 29, 2020 at 06:59 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -106,16 +106,17 @@ CREATE TABLE `notes` (
   `content` varchar(255) NOT NULL,
   `student_id` bigint(20) NOT NULL,
   `course_id` bigint(20) NOT NULL,
-  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `notes`
 --
 
-INSERT INTO `notes` (`id`, `name`, `content`, `student_id`, `course_id`, `create_at`, `updated_at`) VALUES
-(1, 'NOOONO', 'aksmdkamskdmak', 2, 4, '2020-01-22 07:17:13', '0000-00-00 00:00:00');
+INSERT INTO `notes` (`id`, `name`, `content`, `student_id`, `course_id`, `created_at`, `updated_at`) VALUES
+(1, 'NOOONO', 'aksmdkamskdmak', 2, 4, '2020-01-22 07:17:13', '0000-00-00 00:00:00'),
+(2, 'test', '<p>test</p>', 5, 4, '2020-01-28 22:57:02', '2020-01-28 22:57:02');
 
 -- --------------------------------------------------------
 
@@ -217,7 +218,7 @@ ALTER TABLE `enrollment`
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
