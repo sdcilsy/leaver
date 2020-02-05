@@ -66,8 +66,11 @@ class studentController extends Controller
         $notes = Note::join('users', 'notes.student_id', '=', 'users.id')
                         ->join('courses', 'notes.course_id', '=', 'courses.id')
                         ->where('users.id', Auth::user()->id)
+                        ->where('courses.id', $cs_id)
+                        ->where('notes.id', $note_id)
                         ->select('notes.name', 'notes.content')
                         ->get();
+        // dd($notes);
         return view('student/read_book', ['notes' => $notes, 'cs_id' => $cs_id, 'note_id' => $note_id]);
         // dd($notes);
     }
