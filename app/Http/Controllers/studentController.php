@@ -69,6 +69,7 @@ class studentController extends Controller
                         ->select('notes.name', 'notes.content')
                         ->get();
         return view('student/read_book', ['notes' => $notes, 'cs_id' => $cs_id, 'note_id' => $note_id]);
+        // dd($notes);
     }
     public function join_class(){
         return view('student/join');
@@ -95,12 +96,20 @@ class studentController extends Controller
         return redirect('student/join')->with(['msg'=>$msg]);
         
     }
+    
+    public function delete_book($book_id)
+    {
+        $url = Book::where('id',$book_id)->select('location')->first();
+        unlink("C:/xampp/htdocs/larapro/leaver/public/$url->location");
+        Book::where('id',$book_id)->delete();
+        return redirect('student/library');
+    }
+
     public function library(){
         $libraries = Book::join('users', 'books.student_id', '=', 'users.id')
                         ->where('users.id', Auth::user()->id)        
                         ->select('books.name', 'books.id', 'books.location')
                         ->get();
-
         return view('student/library', ['libraries' => $libraries]);
     }
 
@@ -128,6 +137,5 @@ class studentController extends Controller
         ]);
 
         return redirect('student/library');
-        // return $tujuan_upload."/".$file->getClientOriginalName()." success uploaded";
     }
 }

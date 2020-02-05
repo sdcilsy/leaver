@@ -40,6 +40,9 @@ Route::middleware(['auth','roles'])->group(function () {
     Route::get('/student/join', 'studentController@join_class');
     Route::post('/student/join/process', 'studentController@join_process');
     Route::get('/student/library', 'studentController@library');
+    // delete 
+    Route::get('/student/delete/book/{book_id}', 'studentController@delete_book');
+
     Route::post('/student/library/process', 'studentController@upload_process');
 });
 Route::middleware(['auth','rolet'])->group(function() {
