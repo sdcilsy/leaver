@@ -52,9 +52,11 @@ Route::middleware(['auth','rolet'])->group(function() {
     // ganti std_id --> {std_id}
     Route::get('/teacher/class/{cs_id}/{std_id}', 'teacherController@student_progress');
     // ganti book_id --> {book_id}
-    Route::get('/teacher/class/id/std_id/book_id', 'teacherController@book_progress');
+    Route::get('/teacher/class/{cs_id}/{std_id}/{book_id}', 'teacherController@book_progress');
     Route::get('/teacher/create', 'teacherController@new_class');
     Route::post('/teacher/create/process', 'teacherController@process');
     Route::get('/teacher/library', 'teacherController@library');
     Route::post('/teacher/library/process', 'teacherController@upload_process');
+    // delete
+    Route::get('/teacher/delete/book/{book_id}', 'studentController@delete_book');
 });

@@ -38,6 +38,14 @@
     <section class="section bg-secondary" id="myclass">
       <div class="container">
         <h1>OUTPUT BUKU DARI SISWA</h1>
+          <div class="list-group">
+            <div class="form-group mb-3">
+              <div class="input-group input-group-alternative">
+                <input readonly class="form-control" type="text" placeholder="Book name" name="name" value="{{$notes[0]->name}}">
+              </div>
+            </div>
+          <textarea name="content" class="ckeditor" id="ckedtor">{{$notes[0]->content}}</textarea>
+        </div>
       </div>
     </section>
   </main>

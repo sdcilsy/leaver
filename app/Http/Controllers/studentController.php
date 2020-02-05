@@ -109,7 +109,7 @@ class studentController extends Controller
     }
 
     public function library(){
-        $libraries = Book::join('users', 'books.student_id', '=', 'users.id')
+        $libraries = Book::join('users', 'books.user_id', '=', 'users.id')
                         ->where('users.id', Auth::user()->id)        
                         ->select('books.name', 'books.id', 'books.location')
                         ->get();
@@ -117,7 +117,17 @@ class studentController extends Controller
     }
 
     public function update_process(Request $request){
-        return "GO BACK TO PREVIOS PAGE";
+        $validate = $request->validate([
+            'name'=>'required|max:100',
+            'content'=>'required'
+        ]);
+        Note::where('id', $request->note_id)
+            ->update([
+                'name' => $request->name,
+                'content' => $request->content,
+                'updated_at' => Carbon::now(),
+            ]);
+        return redirect("/student/read/$request->cs_id");
     }
     public function upload_process(Request $request){
         $this->validate($request, [
@@ -127,18 +137,18 @@ class studentController extends Controller
         if($file->getClientOriginalExtension() == 'php'){
             return redirect('student/library');
         }
-        $tujuan_upload = 'student_file';
+        $std_id = Auth::user()->username;
+        $tujuan_upload = "student_file/$std_id";
         // upload file
         $file->move($tujuan_upload,$file->getClientOriginalName());
         // ganti Bag ke Book
         Book::insert([
-            'student_id' => Auth::user()->id,
+            'user_id' => Auth::user()->id,
             'name' => $file->getClientOriginalName(),
             'location' => $tujuan_upload."/".$file->getClientOriginalName(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
-
         return redirect('student/library');
     }
 }

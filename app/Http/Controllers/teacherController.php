@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Bag;
+use App\Book;
+
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -10,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Course;
 use App\Enrollment;
+use App\Note;
 
 class teacherController extends Controller
 {
@@ -29,15 +32,44 @@ class teacherController extends Controller
         return view('teacher/class', ['students' => $students, 'cs_id' => $cs_id]);
     }
     public function student_progress($cs_id, $std_id){
-        
-        return view('teacher/student');
+        $notes = Note::join('users', 'notes.student_id', '=', 'users.id')
+                        ->join('courses', 'notes.course_id', '=', 'courses.id')
+                        ->where('users.id', $std_id)
+                        ->where('courses.id', $cs_id)
+                        // ->where('notes.id', $note_id)
+                        ->select('notes.name', 'notes.id')
+                        ->get();
+        // dd($notes);
+        return view('teacher/student', ["cs_id" => $cs_id, "std_id" => $std_id, "notes" => $notes]);
     }
-    public function book_progress(){
-        return view('teacher/book');
+    public function book_progress($cs_id, $std_id, $note_id){
+        $notes = Note::join('users', 'notes.student_id', '=', 'users.id')
+                        ->join('courses', 'notes.course_id', '=', 'courses.id')
+                        ->where('users.id', $std_id)
+                        ->where('courses.id', $cs_id)
+                        ->where('notes.id', $note_id)
+                        ->select('notes.name', 'notes.content')
+                        ->get();
+        // dd($notes);
+        return view('teacher/book', ['notes' => $notes, 'cs_id' => $cs_id, 'note_id' => $note_id]);
+        // return view('teacher/book');
     }
     public function library(){
-        return view('teacher/inventory');
+        $libraries = Book::join('users', 'books.user_id', '=', 'users.id')
+                        ->where('users.id', Auth::user()->id)        
+                        ->select('books.name', 'books.id', 'books.location')
+                        ->get();
+        return view('teacher/inventory', ['libraries' => $libraries]);
     }
+
+    public function delete_book($book_id)
+    {
+        $url = Book::where('id',$book_id)->select('location')->first();
+        unlink("C:/xampp/htdocs/larapro/leaver/public/$url->location");
+        Book::where('id',$book_id)->delete();
+        return redirect('teacher/inventory');
+    }
+
     public function process(Request $request){
         $id_teacher = Auth::user()->id;
         $name = $request->name;
@@ -70,14 +102,18 @@ class teacherController extends Controller
         if($file->getClientOriginalExtension() == 'php'){
             return redirect('student/library');
         }
-        $tujuan_upload = 'teacher_file';
+        $std_id = Auth::user()->username;
+        $tujuan_upload = "teacher_file/$std_id";
         // upload file
         $file->move($tujuan_upload,$file->getClientOriginalName());
         // Ganti Bag ke Book
-        // Bag::insert([
-        //     'name'=>Auth::user()->username,
-        //     'content'=>$tujuan_upload."/".$file->getClientOriginalName()
-        // ]);
-        return $tujuan_upload."/".$file->getClientOriginalName()." success uploaded";
+        Book::insert([
+            'user_id' => Auth::user()->id,
+            'name' => $file->getClientOriginalName(),
+            'location' => $tujuan_upload."/".$file->getClientOriginalName(),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        return redirect('teacher/inventory');
     }
 }
