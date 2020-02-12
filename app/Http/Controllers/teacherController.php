@@ -59,7 +59,7 @@ class teacherController extends Controller
                         ->where('users.id', Auth::user()->id)        
                         ->select('books.name', 'books.id', 'books.location')
                         ->get();
-        return view('teacher/inventory', ['libraries' => $libraries]);
+        return view('teacher/library', ['libraries' => $libraries]);
     }
 
     public function delete_book($book_id)
@@ -67,7 +67,7 @@ class teacherController extends Controller
         $url = Book::where('id',$book_id)->select('location')->first();
         unlink("C:/xampp/htdocs/larapro/leaver/public/$url->location");
         Book::where('id',$book_id)->delete();
-        return redirect('teacher/inventory');
+        return redirect('teacher/library');
     }
 
     public function process(Request $request){
@@ -114,6 +114,6 @@ class teacherController extends Controller
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
-        return redirect('teacher/inventory');
+        return redirect('teacher/library');
     }
 }

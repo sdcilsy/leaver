@@ -125,7 +125,7 @@
     </nav>
   </header>
   @yield('body')
-  <footer class="footer">
+  {{-- <footer class="footer">
     <div class="container">
       <div class="row row-grid align-items-center mb-5">
         <div class="col-lg-6">
@@ -172,7 +172,7 @@
         </div>
       </div>
     </div>
-  </footer>
+  </footer> --}}
   <!-- Core -->
   <script src="{{asset("assets/vendor/jquery/jquery.min.js")}}"></script>
   <script src="{{asset("assets/vendor/popper/popper.min.js")}}"></script>
