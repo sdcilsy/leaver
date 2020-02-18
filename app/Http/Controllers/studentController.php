@@ -111,7 +111,7 @@ class studentController extends Controller
     public function library(){
         $libraries = Book::join('users', 'books.user_id', '=', 'users.id')
                         ->where('users.id', Auth::user()->id)        
-                        ->select('books.name', 'books.id', 'books.location')
+                        ->select('users.name as username', 'books.name', 'books.id', 'books.location')
                         ->get();
         return view('student/library', ['libraries' => $libraries]);
     }

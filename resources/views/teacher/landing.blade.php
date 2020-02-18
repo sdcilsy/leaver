@@ -99,9 +99,18 @@
     <section class="section bg-secondary" id="myclass">
       <div class="container">
         <div class="list-group">
-          @foreach ($courses as $course)
-            <a href="{{ url('/teacher/class') }}/{{$course->id}}" class="list-group-item list-group-item-action">{{$course->name}}</a>
-          @endforeach
+          <table>
+            <tr align=center>
+              <th>Mapel</th>
+              <th>Token</th>
+            </tr>
+              @foreach ($courses as $course)
+              <tr>
+                <td><a href="{{ url('/teacher/class') }}/{{$course->id}}" class="list-group-item list-group-item-action">{{$course->name}}</a>
+                <td align="center"><p class="list-group-item list-group-item-action ">{{$course->token}}</p></td>
+              </tr>
+              @endforeach
+          </table>
         </div>
         {{-- <div class="row row-grid align-items-center">
           <div class="col-md-6">

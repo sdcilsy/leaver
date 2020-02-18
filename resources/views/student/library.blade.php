@@ -56,9 +56,13 @@
           <div class="list-group">
             <h2 class="text-center">Your Files</h2>
               <table>
+                <tr align="center">
+                  <th>FIles</th>
+                  <th>Action</th>
+                </tr>
                 @foreach ($libraries as $library) 
                 <tr>
-                  <td><a href="{{ route('home') }}/{{ $library->location }}" class="btn btn-light list-group-item list-group-item-action">{{ $library->name }}</a></td>
+                  <td><a href="{{ route('home') }}/{{ $library->location }}" class="btn btn-light list-group-item list-group-item-action">{{ $library->name }} - {{$library->username}}</a></td>
                   <td align="center"><a href="{{ url('student/delete/book') }}/{{ $library->id }}" class="list-group-item list-group-item-action btn btn-danger ">delete</a></td>
                 </tr>
                 @endforeach
