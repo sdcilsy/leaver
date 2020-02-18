@@ -109,11 +109,15 @@ class studentController extends Controller
     }
 
     public function library(){
+        $course_id = Enrollment::where('id_student',Auth::user()->id)->get();
+        $data = $course_id[0]->id_course;
         $libraries = Book::join('users', 'books.user_id', '=', 'users.id')
                         ->where('users.id', Auth::user()->id)        
+                        ->where('course_id',$data)
                         ->select('users.name as username', 'books.name', 'books.id', 'books.location')
                         ->get();
-        return view('student/library', ['libraries' => $libraries]);
+        // return view('student/library', ['libraries' => $libraries]);
+        dd($libraries);
     }
 
     public function update_process(Request $request){
