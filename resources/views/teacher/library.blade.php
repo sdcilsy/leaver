@@ -37,6 +37,17 @@
                         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                       </div>
                     </div>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <select class="form-control" name="course">
+                          <option value="">Pribadi</option>
+                          @foreach ($courses as $course)
+                            <option value="{{$course->id}}">{{$course->name}}</option>  
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+
                     <br>
                     <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                   </form>

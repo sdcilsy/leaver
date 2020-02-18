@@ -109,15 +109,23 @@ class studentController extends Controller
     }
 
     public function library(){
-        $course_id = Enrollment::where('id_student',Auth::user()->id)->get();
-        $data = $course_id[0]->id_course;
-        $libraries = Book::join('users', 'books.user_id', '=', 'users.id')
-                        ->where('users.id', Auth::user()->id)        
-                        ->where('course_id',$data)
-                        ->select('users.name as username', 'books.name', 'books.id', 'books.location')
-                        ->get();
-        // return view('student/library', ['libraries' => $libraries]);
-        dd($libraries);
+        // $course_id = Enrollment::where('id_student',Auth::user()->id)->get();
+        $course_id = Enrollment::join('users', 'enrollment.id_student', '=', 'users.id')
+                                ->join('courses', 'enrollment.id_course', '=', 'courses.id')
+                                ->where('users.id', Auth::user()->id)
+                                ->select('courses.id','courses.name')
+                                ->get();
+        foreach ($course_id as $courses) {
+            $libraries = Book::join('users', 'books.user_id', '=', 'users.id')
+                            ->where('users.id', Auth::user()->id)        
+                            // ->where('course_id',$courses->id)
+                            ->select('users.name as username', 'books.name', 'books.id', 'books.location')
+                            ->get();
+            return view('student/library', ['libraries' => $libraries, 'course_id'=>$course_id]);
+            // dd($course_id->id);
+            // var_dump($courses->id);
+            // dd($libraries);
+        }
     }
 
     public function update_process(Request $request){
@@ -148,6 +156,7 @@ class studentController extends Controller
         // ganti Bag ke Book
         Book::insert([
             'user_id' => Auth::user()->id,
+            'course_id' => $request->course,
             'name' => $file->getClientOriginalName(),
             'location' => $tujuan_upload."/".$file->getClientOriginalName(),
             'created_at' => Carbon::now(),

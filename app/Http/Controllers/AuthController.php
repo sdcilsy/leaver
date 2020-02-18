@@ -16,6 +16,11 @@ class AuthController extends Controller
     public function register(){
         return view('register');
     }
+    
+    public function reset(){
+        return view('forgot');
+    }
+
     public function login_process(Request $request)
     {
         $username = $request->username;
@@ -48,5 +53,8 @@ class AuthController extends Controller
             'updated_at'=>Carbon::now()
         ]);
         return redirect('/login');
+    }
+    public function reset_process(Request $request){
+        
     }
 }

@@ -59,7 +59,9 @@ class teacherController extends Controller
                         ->where('users.id', Auth::user()->id)        
                         ->select('books.name', 'books.id', 'books.location')
                         ->get();
-        return view('teacher/library', ['libraries' => $libraries]);
+        $courses = Course::where('id_teacher', Auth::user()->id)
+                        ->get();                        
+        return view('teacher/library', ['libraries' => $libraries, 'courses' => $courses]);
     }
 
     public function delete_book($book_id)
@@ -96,7 +98,7 @@ class teacherController extends Controller
     }
     public function upload_process(Request $request){
         $this->validate($request, [
-			'file' => 'required',
+            'file' => 'required',
         ]);
         $file = $request->file('file');
         if($file->getClientOriginalExtension() == 'php'){
@@ -109,6 +111,7 @@ class teacherController extends Controller
         // Ganti Bag ke Book
         Book::insert([
             'user_id' => Auth::user()->id,
+            'course_id' => $request->course,
             'name' => $file->getClientOriginalName(),
             'location' => $tujuan_upload."/".$file->getClientOriginalName(),
             'created_at' => Carbon::now(),

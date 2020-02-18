@@ -36,7 +36,7 @@
             </div> --}}
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
-                <big>Sign in with your credentials</big>
+                <big>Input your email</big>
                 <br><hr>
                 @if (session()->get('msg'))
                   <div class="alert alert-danger" role="alert">
@@ -49,7 +49,7 @@
                 <div class="form-group mb-3">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-user-run"></i></span>
+                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
                       <input class="form-control" placeholder="Username" type="text" name="username">
                   </div>

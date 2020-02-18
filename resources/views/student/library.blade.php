@@ -20,7 +20,6 @@
           <div class="col px-0">
             <div class="row">
               <div class="col-lg-6">
-                {{-- <h1 class="display-3  text-white">Welcome back<span>{{Auth::user()->username}}</span></h1> --}}
                 <p class="lead  text-white">Upload file what u want</p>
                 @if (count($errors)>0)
                     @foreach ($errors->all() as $error)
@@ -35,6 +34,16 @@
                       <div class="custom-file">
                         <input type="file" class="custom-file-input" name="file" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
                         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                      </div>
+                    </div>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <select class="form-control" name="course">
+                          <option value="">Pribadi</option>
+                          @foreach ($course_id as $course)
+                            <option value="{{$course->id}}">{{$course->name}}</option>  
+                          @endforeach
+                        </select>
                       </div>
                     </div>
                     <br>
