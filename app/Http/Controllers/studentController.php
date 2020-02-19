@@ -118,7 +118,8 @@ class studentController extends Controller
             $libraries = Book::join('users', 'books.user_id', '=', 'users.id')
                             ->join('courses','books.course_id','=','courses.id')
                             ->where('users.id', Auth::user()->id)
-                            ->orWhere('course_id',$courses->id)
+                            // ->orWhere('course_id',$courses->id)
+                            ->orWhere('course_id',"")
                             ->select('users.name as username', 'books.name', 'books.id', 'books.location','courses.name as cname')
                             ->get();
             return view('student/library', ['libraries' => $libraries, 'course_id'=>$course_id]);

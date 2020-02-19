@@ -37,7 +37,7 @@
                         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                       </div>
                     </div>
-                    <div class="input-group">
+                    {{-- <div class="input-group">
                       <div class="custom-file">
                         <select class="form-control" name="course">
                           <option value="">Pribadi</option>
@@ -46,7 +46,7 @@
                           @endforeach
                         </select>
                       </div>
-                    </div>
+                    </div> --}}
 
                     <br>
                     <button type="submit" class="btn btn-primary" name="submit">Submit</button>
@@ -65,13 +65,14 @@
       <section class="section bg-secondary" id="read">
         <div class="container">
           <div class="list-group">
-            <h2 class="text-center">Your Files</h2>
+            <h2 class="text-center">Other Files</h2>
             <table>
               @foreach ($libraries as $library) 
-              <tr>
+              {{$libraries->id}}
+              {{-- <tr>
                 <td><a href="{{ route('home') }}/{{ $library->location }}" class="btn btn-light list-group-item list-group-item-action">{{ $library->bname }} - {{ $library->username }} - {{ $library->username }}</a></td>
                 <td align="center"><a href="{{ url('teacher/delete/book') }}/{{ $library->id }}" class="list-group-item list-group-item-action btn btn-danger ">delete</a></td>
-              </tr>
+              </tr> --}}
               @endforeach
             </table>
           </div>

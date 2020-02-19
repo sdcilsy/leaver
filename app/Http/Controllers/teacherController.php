@@ -57,14 +57,16 @@ class teacherController extends Controller
     public function library(){
         $courses = Course::where('id_teacher',Auth::user()->id)->get();
         foreach ($courses as $id_course) {
-            $library = Book::join('users', 'books.user_id', '=', 'users.id')
-                            ->join('courses','books.course_id','=','courses.id')
-                            ->where('users.id', Auth::user()->id)
-                            ->orWhere('course_id',$id_course->id)
-                            ->select('users.name as username', 'books.name as bname', 'books.id', 'books.location','courses.name as cname')
-                            ->get();
-            // return view('teacher/library', ['libraries' => $library,'courses'=>$courses]);   
-            dd($library);
+            // $library = Book::join('users', 'books.user_id', '=', 'users.id')
+            //                 ->join('courses','books.course_id','=','courses.id')
+            //                 ->where('users.id', Auth::user()->id)
+            //                 ->where('course_id',$id_course->id)
+            //                 ->select('users.name as username', 'books.name as bname', 'books.id', 'books.location','courses.name as cname')
+            //                 ->get();
+            $library = Book::where('course_id',$id_course->id)->get();
+            // return view('teacher/library', ['libraries' => $library]);   
+            // dd($library);
+            // var_dump($id_course->id);
         }
     }
 
