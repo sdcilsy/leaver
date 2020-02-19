@@ -109,7 +109,6 @@ class studentController extends Controller
     }
 
     public function library(){
-        // $course_id = Enrollment::where('id_student',Auth::user()->id)->get();
         $course_id = Enrollment::join('users', 'enrollment.id_student', '=', 'users.id')
                                 ->join('courses', 'enrollment.id_course', '=', 'courses.id')
                                 ->where('users.id', Auth::user()->id)
@@ -117,14 +116,11 @@ class studentController extends Controller
                                 ->get();
         foreach ($course_id as $courses) {
             $libraries = Book::join('users', 'books.user_id', '=', 'users.id')
-                            ->where('users.id', Auth::user()->id)        
-                            // ->where('course_id',$courses->id)
+                            ->where('users.id', Auth::user()->id)
+                            ->orWhere('course_id',$courses->id)
                             ->select('users.name as username', 'books.name', 'books.id', 'books.location')
                             ->get();
             return view('student/library', ['libraries' => $libraries, 'course_id'=>$course_id]);
-            // dd($course_id->id);
-            // var_dump($courses->id);
-            // dd($libraries);
         }
     }
 
