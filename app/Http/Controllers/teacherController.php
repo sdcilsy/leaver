@@ -55,13 +55,17 @@ class teacherController extends Controller
         // return view('teacher/book');
     }
     public function library(){
-        $libraries = Book::join('users', 'books.user_id', '=', 'users.id')
-                        ->where('users.id', Auth::user()->id)        
-                        ->select('books.name', 'books.id', 'books.location')
-                        ->get();
-        $courses = Course::where('id_teacher', Auth::user()->id)
-                        ->get();                        
-        return view('teacher/library', ['libraries' => $libraries, 'courses' => $courses]);
+        $courses = Course::where('id_teacher',Auth::user()->id)->get();
+        foreach ($courses as $id_course) {
+            $library = Book::join('users', 'books.user_id', '=', 'users.id')
+                            ->join('courses','books.course_id','=','courses.id')
+                            ->where('users.id', Auth::user()->id)
+                            ->orWhere('course_id',$id_course->id)
+                            ->select('users.name as username', 'books.name as bname', 'books.id', 'books.location','courses.name as cname')
+                            ->get();
+            // return view('teacher/library', ['libraries' => $library,'courses'=>$courses]);   
+            dd($library);
+        }
     }
 
     public function delete_book($book_id)
@@ -69,7 +73,7 @@ class teacherController extends Controller
         $url = Book::where('id',$book_id)->select('location')->first();
         unlink("C:/xampp/htdocs/larapro/leaver/public/$url->location");
         Book::where('id',$book_id)->delete();
-        return redirect('teacher/library');
+        return redirect('library');
     }
 
     public function process(Request $request){
