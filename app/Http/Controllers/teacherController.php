@@ -56,18 +56,22 @@ class teacherController extends Controller
     }
     public function library(){
         $courses = Course::where('id_teacher',Auth::user()->id)->get();
-        foreach ($courses as $id_course) {
-            // $library = Book::join('users', 'books.user_id', '=', 'users.id')
-            //                 ->join('courses','books.course_id','=','courses.id')
-            //                 ->where('users.id', Auth::user()->id)
-            //                 ->where('course_id',$id_course->id)
-            //                 ->select('users.name as username', 'books.name as bname', 'books.id', 'books.location','courses.name as cname')
-            //                 ->get();
-            $library = Book::where('course_id',$id_course->id)->get();
-            // return view('teacher/library', ['libraries' => $library]);   
-            // dd($library);
-            // var_dump($id_course->id);
-        }
+        $libraries = Course::join('books','books.course_id','=','courses.id')
+                            ->where('courses.id_teacher',Auth::user()->id)
+                            ->where('books.location','not like','%teacher%')
+                            ->select('location','books.name as bname','courses.name as cname','books.id')
+                            ->get();
+        $course_id = Enrollment::join('users', 'enrollment.id_student', '=', 'users.id')
+                                ->join('courses', 'enrollment.id_course', '=', 'courses.id')
+                                ->where('users.id', Auth::user()->id)
+                                ->select('courses.id','courses.name')
+                                ->get();
+
+        $self_library = Book::join('users', 'books.user_id', '=', 'users.id')
+                            ->where('users.id', Auth::user()->id)
+                            ->select('location','books.name as bname','books.id')
+                            ->get();
+        return view('teacher/library', ['libraries' => $libraries,'courses'=>$courses, 'course_id'=>$course_id,'self_library'=>$self_library]);
     }
 
     public function delete_book($book_id)

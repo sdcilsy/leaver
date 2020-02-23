@@ -69,10 +69,21 @@
                   <th>FIles</th>
                   <th>Action</th>
                 </tr>
+                @foreach ($self_library as $s_library)
+                <tr>
+                  <td><a href="{{ route('home') }}/{{ $s_library->location }}" class="btn btn-light list-group-item list-group-item-action">{{ $s_library->bname }}</a></td>
+                  <td align="center"><a href="{{ url('student/delete/book') }}/{{ $s_library->id }}" class="list-group-item list-group-item-action btn btn-danger ">delete</a></td>
+                </tr>
+                @endforeach
+              </table>
+          </div>
+          <br>
+          <div class="list-group">
+            <h2 class="text-center">Shared Teacher Files</h2>
+              <table>
                 @foreach ($libraries as $library) 
                 <tr>
-                  <td><a href="{{ route('home') }}/{{ $library->location }}" class="btn btn-light list-group-item list-group-item-action">{{ $library->name }} - {{$library->username}} - {{$library->cname}}</a></td>
-                  <td align="center"><a href="{{ url('student/delete/book') }}/{{ $library->id }}" class="list-group-item list-group-item-action btn btn-danger ">delete</a></td>
+                  <td><a href="{{ route('home') }}/{{ $library->location }}" class="btn btn-light list-group-item list-group-item-action">{{ $library->bname }} - {{$library->cname}}</a></td>
                 </tr>
                 @endforeach
               </table>

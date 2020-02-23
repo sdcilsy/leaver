@@ -37,7 +37,7 @@
                         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                       </div>
                     </div>
-                    {{-- <div class="input-group">
+                    <div class="input-group">
                       <div class="custom-file">
                         <select class="form-control" name="course">
                           <option value="">Pribadi</option>
@@ -46,8 +46,7 @@
                           @endforeach
                         </select>
                       </div>
-                    </div> --}}
-
+                    </div>
                     <br>
                     <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                   </form>
@@ -65,16 +64,30 @@
       <section class="section bg-secondary" id="read">
         <div class="container">
           <div class="list-group">
-            <h2 class="text-center">Other Files</h2>
-            <table>
-              @foreach ($libraries as $library) 
-              {{$libraries->id}}
-              {{-- <tr>
-                <td><a href="{{ route('home') }}/{{ $library->location }}" class="btn btn-light list-group-item list-group-item-action">{{ $library->bname }} - {{ $library->username }} - {{ $library->username }}</a></td>
-                <td align="center"><a href="{{ url('teacher/delete/book') }}/{{ $library->id }}" class="list-group-item list-group-item-action btn btn-danger ">delete</a></td>
-              </tr> --}}
-              @endforeach
-            </table>
+            <h2 class="text-center">Your Files</h2>
+              <table>
+                <tr align="center">
+                  <th>FIles</th>
+                  <th>Action</th>
+                </tr>
+                @foreach ($self_library as $s_library)
+                <tr>
+                  <td><a href="{{ route('home') }}/{{ $s_library->location }}" class="btn btn-light list-group-item list-group-item-action">{{ $s_library->bname }}</a></td>
+                  <td align="center"><a href="{{ url('student/delete/book') }}/{{ $s_library->id }}" class="list-group-item list-group-item-action btn btn-danger ">delete</a></td>
+                </tr>
+                @endforeach
+              </table>
+          </div>
+          <br>
+          <div class="list-group">
+            <h2 class="text-center">Shared Student Files</h2>
+              <table>
+                @foreach ($libraries as $library) 
+                <tr>
+                  <td><a href="{{ route('home') }}/{{ $library->location }}" class="btn btn-light list-group-item list-group-item-action">{{ $library->bname }} - {{$library->cname}}</a></td>
+                </tr>
+                @endforeach
+              </table>
           </div>
         </div>
       </section>

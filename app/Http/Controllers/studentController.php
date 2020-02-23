@@ -114,16 +114,20 @@ class studentController extends Controller
                                 ->where('users.id', Auth::user()->id)
                                 ->select('courses.id','courses.name')
                                 ->get();
-        foreach ($course_id as $courses) {
-            $libraries = Book::join('users', 'books.user_id', '=', 'users.id')
-                            ->join('courses','books.course_id','=','courses.id')
+
+        $libraries = Enrollment::join('users', 'enrollment.id_student', '=', 'users.id')
+                                ->join('courses', 'enrollment.id_course', '=', 'courses.id')
+                                ->join('books','enrollment.id_course','=','books.course_id')
+                                ->where('users.id', Auth::user()->id)
+                                ->where('books.location','not like','%student%')
+                                ->select('location','books.name as bname','courses.name as cname','books.id')
+                                ->get();
+
+        $self_library = Book::join('users', 'books.user_id', '=', 'users.id')
                             ->where('users.id', Auth::user()->id)
-                            // ->orWhere('course_id',$courses->id)
-                            ->orWhere('course_id',"")
-                            ->select('users.name as username', 'books.name', 'books.id', 'books.location','courses.name as cname')
+                            ->select('location','books.name as bname','books.id')
                             ->get();
-            return view('student/library', ['libraries' => $libraries, 'course_id'=>$course_id]);
-        }
+        return view('student/library', ['libraries' => $libraries, 'course_id'=>$course_id,'self_library'=>$self_library]);
     }
 
     public function update_process(Request $request){
