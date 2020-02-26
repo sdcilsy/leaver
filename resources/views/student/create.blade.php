@@ -21,7 +21,7 @@
             <div class="row">
               <div class="col-lg-6">
                 <h1 class="display-3  text-white">Welcome back<span>{{ Auth::user()->name }}</span></h1>
-                <p class="lead  text-white">Leaver is a (edit soon)</p>
+                <p class="lead  text-white">Have some knowledge here</p>
               </div>
             </div>
           </div>

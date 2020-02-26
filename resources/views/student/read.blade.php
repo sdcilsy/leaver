@@ -20,8 +20,8 @@
           <div class="col px-0">
             <div class="row">
               <div class="col-lg-6">
-                <h1 class="display-3  text-white">Baca ulang materi yang ada gan..(edit soon)</span></h1>
-                <p class="lead  text-white">Rereadable.</p>
+                <h1 class="display-3  text-white">This is your memos</span></h1>
+                <p class="lead  text-white">Go read some</p>
               </div>
             </div>
           </div>
@@ -38,7 +38,7 @@
     <section class="section bg-secondary">
       <div class="container">
         <div class="list-group">
-          <h2 class="text-center">List Notes</h2>
+          <h2 class="text-center">List Memories</h2>
           @foreach ($notes as $note)
             <a href="{{ url('/student/read') }}/{{ $cs_id }}/{{ $note->id }}" class="list-group-item list-group-item-action">{{ $note->name }}</a>
           @endforeach

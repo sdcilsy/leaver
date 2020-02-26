@@ -21,7 +21,7 @@
             <div class="row">
               <div class="col-lg-6">
                 {{-- <h1 class="display-3  text-white">Welcome back<span>{{Auth::user()->username}}</span></h1> --}}
-                <p class="lead  text-white">Upload file what u want</p>
+                <p class="lead  text-white">Upload file what you want</p>
                 @if (count($errors)>0)
                     @foreach ($errors->all() as $error)
                       <div class="alert alert-danger" role="alert">

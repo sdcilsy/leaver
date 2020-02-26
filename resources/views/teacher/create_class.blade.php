@@ -21,7 +21,9 @@
             <div class="row">
               <div class="col-lg-6">
                 {{-- <h1 class="display-3  text-white">Welcome back<span>{{Auth::user()->username}}</span></h1> --}}
-                <p class="lead  text-white">Input class name and course name below. Class code will be automatically generated</p>
+                <p class="lead  text-white">Input class name and course name below</p>
+                <p class="text-white">Class code will be automatically generated</p>
+                <br>
                 @if (count($errors)>0)
                     @foreach ($errors->all() as $error)
                       <div class="alert alert-danger" role="alert">

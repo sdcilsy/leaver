@@ -20,8 +20,8 @@
           <div class="col px-0">
             <div class="row">
               <div class="col-lg-6">
-                <h1 class="display-3  text-white">Kuy nulis gan(edit soon)<span>users!</span></h1>
-                <p class="lead  text-white">Mari buat lembaran baru pada vbook mu!.</p>
+                <h1 class="display-3  text-white">Let's write something<span>{{Auth::user()->name}}</span></h1>
+                <p class="lead  text-white">Create your memo now</p>
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@
           <input type="hidden" name="cs_id" value="{{$cs_id}}">
           <div class="form-group mb-3">
             <div class="input-group input-group-alternative">
-                <input class="form-control" type="text" placeholder="Book name" name="name" value="{{old('name')}}">
+                <input class="form-control" type="text" placeholder="Memo Name" name="name" value="{{old('name')}}">
             </div>
           </div>
           <textarea name="content" class="ckeditor" id="ckedtor"></textarea>

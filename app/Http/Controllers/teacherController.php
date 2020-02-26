@@ -97,7 +97,6 @@ class teacherController extends Controller
             'token' => $token,
             'created_at'=>Carbon::now(),
             'updated_at'=>Carbon::now()
-
         ]);
         return redirect('/teacher');
     }
