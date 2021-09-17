@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'f7fbb0e7bd06933cd3ed8039875ef854f160348d',
+        'reference' => 'a97f1e27c38e87fbbe23b12b84ba366e15c76783',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -21,6 +21,15 @@
             'replaced' => array(
                 0 => '*',
             ),
+        ),
+        'dnoegel/php-xdg-base-dir' => array(
+            'pretty_version' => 'v0.1.1',
+            'version' => '0.1.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../dnoegel/php-xdg-base-dir',
+            'aliases' => array(),
+            'reference' => '8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd',
+            'dev_requirement' => false,
         ),
         'doctrine/inflector' => array(
             'pretty_version' => '2.0.3',
@@ -331,7 +340,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'f7fbb0e7bd06933cd3ed8039875ef854f160348d',
+            'reference' => 'a97f1e27c38e87fbbe23b12b84ba366e15c76783',
             'dev_requirement' => false,
         ),
         'laravel/tinker' => array(
@@ -607,8 +616,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0',
             ),
         ),
         'psr/simple-cache' => array(
